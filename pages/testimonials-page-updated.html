@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="고객 후기 - 스터프타스 마케팅">
+  <meta property="og:description" content="스터프타스와 함께 성공한 고객들의 생생한 후기를 확인하세요">
+  <meta property="og:image" content="../images/logo.png">
+  <title>고객 후기 - 스터프타스 마케팅</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 0.8rem 5%;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    header .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    header .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    header .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4b0096;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #4b0096;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4b0096;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .testimonials-hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(160deg, #1e0038, #4b0096);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonials-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/placeholder/1200/600') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .testimonials-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .testimonials-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonials-hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    /* Testimonials Stats Section */
+    .testimonials-stats {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .testimonials-stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #4b0096;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    
+    /* Featured Testimonials */
+    .featured-testimonials {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .featured-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e0038;
+      position: relative;
+      padding-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #4b0096;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .featured-testimonial {
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+    }
+    
+    .featured-content {
+      width: 100%;
+    }
+    
+    .featured-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1e0038;
+    }
+    
+    .featured-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: #333;
+      position: relative;
+    }
+    
+    .featured-text::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      left: -2rem;
+      top: -1.5rem;
+      color: #4b0096;
+      opacity: 0.2;
+    }
+    
+    .featured-client {
+      display: flex;
+      align-items: center;
+    }
+    
+    .featured-client-info {
+      flex: 1;
+    }
+    
+    .featured-client-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .featured-client-position {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .featured-company {
+      font-weight: 500;
+      color: #4b0096;
+    }
+    
+    /* Testimonials Grid */
+    .testimonials-grid {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .grid-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .testimonial-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-content {
+      flex: 1;
+    }
+    
+    .testimonial-rating {
+      color: #FFD700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      color: #555;
+      position: relative;
+    }
+    
+    .testimonial-text::before {
+      content: '"';
+      font-size: 3rem;
+      position: absolute;
+      left: -1rem;
+      top: -1rem;
+      color: #4b0096;
+      opacity: 0.2;
+    }
+    
+    .testimonial-client {
+      margin-top: auto;
+    }
+    
+    .client-info {
+      flex: 1;
+    }
+    
+    .client-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .client-position {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .testimonial-service {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #fff;
+      background: #4b0096;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 5%;
+      background: linear-gradient(160deg, #4b0096, #1e0038);
+      color: #fff;
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: #fff;
+      color: #4b0096;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background: #f0f0f0;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 5%;
+      background: #1e0038;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-links h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.7rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+    }
+    
+    .footer-contact {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-contact h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #fff;
+    }
+    
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .testimonials-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .featured-testimonial {
+        padding: 2rem;
+      }
+      
+      .testimonials-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.png" alt="Stufftas Logo">
+        <span class="logo-text">스터프타스</span>
+      </a>
+    </div>
+    
+    <nav>
+      <a href="../index.html">홈</a>
+      <a href="../index.html#services">서비스</a>
+      <a href="./testimonials-page.html">고객 후기</a>
+      <a href="../index.html#contact">문의하기</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="testimonials-hero">
+    <div class="testimonials-hero-content">
+      <h1>고객 후기</h1>
+      <p>스터프타스와 함께 성공적인 디지털 마케팅 여정을 경험한 고객들의 생생한 이야기를 만나보세요.</p>
+    </div>
+  </section>
+  
+  <!-- Stats Section -->
+  <section class="testimonials-stats">
+    <div class="testimonials-stats-container">
+      <h2 class="section-title">신뢰할 수 있는 마케팅 파트너</h2>
+      <p class="section-subtitle">수많은 기업들이 스터프타스를 선택한 이유입니다</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">98%</div>
+          <p class="stat-label">고객 만족도</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">250+</div>
+          <p class="stat-label">성공적인 프로젝트</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">85%</div>
+          <p class="stat-label">재계약률</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4.9/5</div>
+          <p class="stat-label">평균 평점</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Testimonials -->
+  <section class="featured-testimonials">
+    <div class="featured-container">
+      <h2 class="section-title">주요 고객 성공 사례</h2>
+      <p class="section-subtitle">스터프타스와 함께한 특별한 성공 스토리</p>
+      
+      <div class="featured-testimonial">
+        <div class="featured-content">
+          <h3 class="featured-title">온라인 존재감과 매출 모두 급상승했습니다</h3>
+          <p class="featured-text">저희 베이커리는 오랫동안 지역에서 운영해왔지만, 온라인에서의 존재감이 부족했습니다. 스터프타스와 협업을 시작한 후 구글맵과 네이버 플레이스에서의 노출이 400% 증가했고, 매장 방문객 수가 45% 증가했습니다. 특히 맞춤형 로컬 SEO 전략으로 '우리 동네 베이커리' 검색에서 상위 노출되면서 신규 고객이 크게 늘었습니다. 단순한 서비스 제공을 넘어 항상 최선의 결과를 위해 노력하는 스터프타스 팀에게 감사드립니다.</p>
+          
+          <div class="featured-client">
+            <div class="featured-client-info">
+              <div class="featured-client-name">김하늘 대표</div>
+              <div class="featured-client-position">창업자 및 총괄 셰프</div>
+              <div class="featured-company">행복한 아침 베이커리</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="featured-testimonial">
+        <div class="featured-content">
+          <h3 class="featured-title">투자 대비 수익률이 200% 이상 증가했습니다</h3>
+          <p class="featured-text">화장품 브랜드를 운영하면서 디지털 마케팅의 중요성을 알고 있었지만, 어디서부터 시작해야 할지 몰랐습니다. 스터프타스는 저희 브랜드의 특성과 타겟 고객을 깊이 이해하고, 체계적인 메타 광고와 인스타그램 콘텐츠 전략을 제시해 주었습니다. 6개월 만에 브랜드 인지도가 크게 상승했고, 온라인 매출이 150% 증가했으며, 광고 투자 대비 수익률이 이전보다 200% 이상 증가했습니다. 스터프타스의 전문적인 접근 방식과 데이터 기반 의사결정이 이러한 결과를 가능하게 했습니다.</p>
+          
+          <div class="featured-client">
+            <div class="featured-client-info">
+              <div class="featured-client-name">이서연 마케팅 총괄</div>
+              <div class="featured-client-position">마케팅 총괄 책임자</div>
+              <div class="featured-company">클라우드 뷰티</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Grid -->
+  <section class="testimonials-grid">
+    <div class="grid-container">
+      <h2 class="section-title">고객의 목소리</h2>
+      <p class="section-subtitle">스터프타스와 함께한 고객들의 솔직한 후기</p>
+      
+      <div class="testimonials-list">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <span class="testimonial-service">네이버 검색광고</span>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">스터프타스의 네이버 검색광고 서비스로 저희 법률사무소의 신규 상담 문의가 70% 이상 증가했습니다. 특히 키워드 최적화와 타게팅 전략이 정말 효과적이었습니다. 비용 대비 효과가 매우 높았어요.</p>
+          </div>
+          <div class="testimonial-client">
+            <div class="client-info">
+              <div class="client-name">오민수 변호사</div>
+              <div class="client-position">정의로운 법률사무소</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <span class="testimonial-service">구글맵 SEO</span>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">구글맵 최적화가 필요해서 스터프타스에 문의했는데, 정말 만족스러운 결과를 얻었습니다. 1개월 만에 지역 검색에서 상위 노출되기 시작했고, 지금은 '강남 피부과' 검색에서 항상 상위 3위 안에 들어갑니다. 덕분에 해외 환자들의 방문도 크게 늘었습니다.</p>
+          </div>
+          <div class="testimonial-client">
+            <div class="client-info">
+              <div class="client-name">정유진 원장</div>
+              <div class="client-position">햇살 피부과</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <span class="testimonial-service">인스타그램</span>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="testimonial-text">스터프타스의 인스타그램 콘텐츠 제작 서비스는 정말 게임 체인저였습니다. 3개월 만에 팔로워가 3배 이상 증가했고, 참여율도 크게 높아졌습니다. 특히 일관된 브랜드 이미지를 유지하면서도 트렌디한 콘텐츠를 제공해주는 점이 인상적이었습니다.</p>
+          </div>
+          <div class="testimonial-client">
+            <div class="client-info">
+              <div class="client-name">송지원 대표</div>
+              <div class="client-position">더나은 인테리어</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <span class="testimonial-service">메타 광고</span>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">다른 마케팅 대행사들과 달리, 스터프타스는 단순히 광고를 집행하는 것이 아니라 정말로 결과에 집중합니다. 메타 광고 캠페인을 통해 신규 고객 확보 비용을 40% 절감하고, 전환율을 25% 높였습니다. 지속적인 A/B 테스트와 최적화 덕분에 가능했습니다.</p>
+          </div>
+          <div class="testimonial-client">
+            <div class="client-info">
+              <div class="client-name">임현우 팀장</div>
+              <div class="client-position">디지웍스 솔루션</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <span class="testimonial-service">네이버 플레이스</span>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">저희 병원은 네이버 플레이스 최적화가 시급했는데, 스터프타스에서 체계적으로 도와주셨습니다. 리뷰 관리부터 정보 업데이트, 키워드 최적화까지 모든 것이 완벽했습니다. 덕분에 지역 내 1위 동물병원으로 자리매김할 수 있었습니다.</p>
+          </div>
+          <div class="testimonial-client">
+            <div class="client-info">
+              <div class="client-name">박소연 원장</div>
+              <div class="client-position">사랑동물병원</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <span class="testimonial-service">종합 마케팅</span>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">스타트업을 운영하면서 마케팅에 많은 어려움을 겪었는데, 스터프타스에서 종합적인 디지털 마케팅 전략을 제시해 주셨습니다. 구글 SEO, 네이버 검색광고, SNS 마케팅까지 통합적으로 관리해주시니 마케팅 효율이 크게 향상되었습니다. 창업자라면 꼭 추천하고 싶은 파트너입니다.</p>
+          </div>
+          <div class="testimonial-client">
+            <div class="client-info">
+              <div class="client-name">강동윤 CEO</div>
+              <div class="client-position">에코푸드 스타트업</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>함께 성공 스토리를 만들어보세요</h2>
+      <p>고객의 비즈니스 성장을 위한 맞춤형 디지털 마케팅 전략으로 실질적인 결과를 제공합니다.</p>
+      <a href="../index.html#contact" class="cta-button">무료 상담 신청하기</a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="../images/logo.png" alt="Stufftas Logo">
+        <p>스터프타스는 데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공하는 전문 대행사입니다.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stufftas_marketing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://blog.naver.com/stufftas" target="_blank" rel="noopener">
+            <span class="naver-icon">N</span>
+          </a>
+          <a href="https://www.linkedin.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>서비스</h3>
+        <a href="./googlemaps-seo-page.html">구글맵 SEO</a>
+        <a href="./naver-place-page.html">네이버 플레이스 광고</a>
+        <a href="./naver-search-page.html">네이버 검색광고</a>
+        <a href="./meta-ads-page.html">메타 광고</a>
+        <a href="./instagram-page.html">인스타그램 콘텐츠</a>
+      </div>
+      
+      <div class="footer-links">
+        <h3>회사 정보</h3>
+        <a href="./about-page.html">회사 소개</a>
+        <a href="./testimonials-page.html">고객 후기</a>
+        <a href="https://blog.naver.com/stufftas" target="_blank">블로그</a>
+        <a href="../index.html#contact">문의하기</a>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      © 2025 Stufftas 스터프타스. All rights reserved.
+    </div>
+  </footer>
+  
+  <script>
+    // 스크롤 이벤트 처리
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

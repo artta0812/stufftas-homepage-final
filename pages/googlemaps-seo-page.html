@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="구글맵 SEO 서비스 - 스터프타스 마케팅">
+  <meta property="og:description" content="최신 알고리즘에 맞춘 최적화로 구글 지도 노출 순위를 향상시키는 전문 서비스">
+  <meta property="og:image" content="/images/logo.png">
+  <title>구글맵 SEO - 스터프타스 마케팅</title>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 0.8rem 5%;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    header .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    header .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    header .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4b0096;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #4b0096;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4b0096;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .service-hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(160deg, #1e0038, #4b0096);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/placeholder/1200/600') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .service-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .service-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .service-cta {
+      display: inline-block;
+      background: #fff;
+      color: #4b0096;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background: #f0f0f0;
+    }
+    
+    /* Overview Section */
+    .overview {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .overview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4rem;
+    }
+    
+    .overview-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e0038;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #4b0096;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .overview-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .overview-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Why Google Section */
+    .why-google {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .why-google-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #4b0096;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-item {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #4b0096;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-desc {
+      color: #666;
+    }
+    
+    /* 구글맵 SEO Factors Section */
+    .seo-factors {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .seo-factors-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .factor-category {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .factor-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #4b0096;
+      display: flex;
+      align-items: center;
+    }
+    
+    .category-title i {
+      margin-right: 1rem;
+    }
+    
+    .factor-list {
+      list-style: none;
+    }
+    
+    .factor-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .factor-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4b0096;
+      font-weight: 700;
+    }
+    
+    /* Process Section */
+    .process {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      position: relative;
+    }
+    
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+    
+    .step {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+      padding: 1rem;
+      text-align: center;
+      z-index: 1;
+    }
+    
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #4b0096;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .step-desc {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    /* Case Studies Section */
+    .case-studies {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .case-studies-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .case-study {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .case-study-content {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .case-study-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1e0038;
+    }
+    
+    .case-study-industry {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .case-study-text {
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    
+    .case-study-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .stat {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #4b0096;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .case-study-image {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .case-study-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Pricing Section */
+    .pricing {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .pricing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .pricing-plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .price-card {
+      flex: 1;
+      min-width: 300px;
+      max-width: 350px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .price-card.featured {
+      transform: scale(1.05);
+      z-index: 1;
+      border: 2px solid #4b0096;
+    }
+    
+    .price-card.featured::before {
+      content: '인기';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #4b0096;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-bottom-left-radius: 10px;
+    }
+    
+    .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .price-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .price-amount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4b0096;
+      margin-bottom: 1.5rem;
+    }
+    
+    .price-period {
+      font-size: 0.9rem;
+      color: #666;
+      display: block;
+    }
+    
+    .price-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .price-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .price-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .price-button {
+      display: inline-block;
+      background: #4b0096;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .price-button:hover {
+      background: #3b0078;
+      transform: translateY(-3px);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 1.5rem;
+    }
+    
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding-right: 30px;
+    }
+    
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 1.5rem;
+      color: #4b0096;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-question.active::after {
+      content: '-';
+    }
+    
+    .faq-answer {
+      color: #666;
+      display: none;
+      padding-top: 0.5rem;
+    }
+    
+    .faq-answer.show {
+      display: block;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 5%;
+      background: linear-gradient(160deg, #4b0096, #1e0038);
+      color: #fff;
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #4b0096;
+    }
+    
+    .submit-button {
+      background: #4b0096;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .submit-button:hover {
+      background: #3b0078;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 5%;
+      background: #1e0038;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-links h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.7rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+    }
+    
+    .footer-contact {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-contact h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #fff;
+    }
+    
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .service-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .step {
+        flex: 100%;
+        margin-bottom: 2rem;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+      
+      .case-study {
+        flex-direction: column;
+      }
+      
+      .case-study-image {
+        order: -1;
+      }
+      
+      .contact-form {
+        padding: 2rem;
+      }
+    }
+    .form-label {
+      color: #333 !important; /* 어두운 색상으로 설정 */
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-control, .form-select {
+      color: #333 !important; /* 입력 필드 텍스트 색상 */
+      background-color: #fff !important; /* 배경색 흰색으로 설정 */
+      border: 1px solid #ddd;
+    }
+    
+    .form-control::placeholder {
+      color: #999 !important; /* 플레이스홀더 색상 */
+      opacity: 1;
+    }
+    
+    .submit-button {
+      color: #fff !important; /* 버튼 텍스트 색상 */
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.png" alt="Stufftas Logo">
+        <span class="logo-text">스터프타스</span>
+      </a>
+    </div>
+    <nav>
+      <a href="../index.html">홈</a>
+      <a href="../index.html#services">서비스</a>
+      <a href="../index.html#testimonials">고객 후기</a>
+      <a href="../index.html#contact">문의하기</a>
+    </nav>
+  </header>
+  
+  
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <h1>구글맵 SEO 서비스</h1>
+      <p>최신 알고리즘에 맞춘 최적화로 구글 지도 노출 순위를 향상시켜 글로벌 시장에서 비즈니스 가시성을 높이세요.</p>
+      <a href="#contact-form" class="service-cta">무료 구글맵 SEO 분석 받기</a>
+    </div>
+  </section>
+  
+ <!-- Overview Section -->
+<section class="overview">
+  <div class="overview-container">
+    <div class="overview-content">
+      <h2 class="section-title">구글맵 SEO란?</h2>
+      <p class="section-subtitle">구글맵 최적화로 지도 기반 유입 트래픽을 극대화하는 전략</p>
+      <p>구글맵 SEO(Search Engine Optimization)는 구글 지도 검색 결과에서 비즈니스 위치의 지도 노출을 최적화하는 과정입니다. 효과적인 지도 노출 전략은 유료 광고 없이도 타겟 키워드에 대한 자연 지도 검색 결과에서 상위에 노출되어 지속적인 유입을 가능하게 합니다.</p>
+      <br>
+      <p>스터프타스는 구글 지도 알고리즘을 지속적으로 연구하고, 기술적 구글맵 SEO, 고품질 플레이스 정보 전략, 사용자 경험 최적화를 통해 클라이언트의 웹지도 등록 정보가 구글 지도 검색 결과에서 경쟁 우위를 차지할 수 있도록 돕습니다. 특히 글로벌 시장 진출을 목표로 하는 기업에게 필수적인 마케팅 전략입니다.</p>
+    </div>
+    <div class="overview-image">
+      <img src="../images/3d-fluency-google-logo.png" alt="구글 로고" style="max-width: 100%; height: auto; object-fit: contain;">
+    </div>
+  </div>
+</section>
+
+  
+  <!-- Why Google Section -->
+  <section class="why-google">
+    <div class="why-google-container">
+      <h2 class="section-title">구글맵 SEO가 중요한 이유</h2>
+      <p class="section-subtitle">글로벌 시장 공략을 위한 필수 전략</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">92%</div>
+          <p class="stat-label">전 세계 검색 시장 점유율</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">53%</div>
+          <p class="stat-label">웹지도 등록 정보 트래픽 비중</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">75%</div>
+          <p class="stat-label">첫 장소 정보 클릭률</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">300%</div>
+          <p class="stat-label">광고 대비 ROI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-container">
+      <h2 class="section-title">주요 서비스 특징</h2>
+      <p class="section-subtitle">스터프타스 구글맵 SEO 서비스의 차별화된 강점</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-search"></i></div>
+          <h3 class="feature-title">심층 키워드 분석</h3>
+          <p class="feature-desc">빅데이터 기반 키워드 분석으로 높은 검색량과 낮은 경쟁률의 틈새 키워드 발굴</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-code"></i></div>
+          <h3 class="feature-title">기술적 구글맵 SEO 최적화</h3>
+          <p class="feature-desc">웹지도 등록 정보 속도, 모바일 최적화, 구조화된 데이터 마크업 등 기술적 요소 개선</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-edit"></i></div>
+          <h3 class="feature-title">고품질 플레이스 정보 전략</h3>
+          <p class="feature-desc">사용자 의도에 맞는 가치 있는 플레이스 정보 기획 및 제작으로 지도 노출 순위 향상</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-link"></i></div>
+          <h3 class="feature-title">효과적인 링크 빌딩</h3>
+          <p class="feature-desc">고품질 백링크 확보를 통한 웹지도 등록 정보 신뢰도 및 권위 구축</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-globe"></i></div>
+          <h3 class="feature-title">다국어 구글맵 SEO 지원</h3>
+          <p class="feature-desc">글로벌 시장을 위한 다국어 키워드 연구 및 현지화 최적화 전략</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="feature-title">데이터 기반 성과 분석</h3>
+          <p class="feature-desc">Google Analytics, Search Console 등을 활용한 정밀한 성과 측정 및 개선</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 구글맵 SEO Factors Section -->
+  <section class="seo-factors">
+    <div class="seo-factors-container">
+      <h2 class="section-title">구글맵 SEO 핵심 요소</h2>
+      <p class="section-subtitle">지도 노출 순위에 영향을 미치는 주요 요인들</p>
+      
+      <div class="factors-grid">
+        <div class="factor-category">
+          <div class="category-title"><i class="fas fa-cogs"></i>기술적 요소</div>
+          <ul class="factor-list">
+            <li>웹지도 등록 정보 로딩 속도 최적화</li>
+            <li>모바일 친화적 디자인</li>
+            <li>HTTPS 보안 프로토콜</li>
+            <li>XML 지도 등록 정보맵 구현</li>
+            <li>올바른 URL 구조</li>
+            <li>구조화된 데이터 마크업</li>
+          </ul>
+        </div>
+        
+        <div class="factor-category">
+          <div class="category-title"><i class="fas fa-file-alt"></i>플레이스 정보 요소</div>
+          <ul class="factor-list">
+            <li>고품질, 독창적 플레이스 정보</li>
+            <li>키워드 최적화된 제목 태그</li>
+            <li>적절한 헤딩 구조</li>
+            <li>메타 디스크립션 최적화</li>
+            <li>이미지 ALT 태그 최적화</li>
+            <li>플레이스 정보 길이와 깊이</li>
+          </ul>
+        </div>
+        
+        <div class="factor-category">
+          <div class="category-title"><i class="fas fa-external-link-alt"></i>외부 요소</div>
+          <ul class="factor-list">
+            <li>고품질 백링크 프로필</li>
+            <li>소셜 미디어 신호</li>
+            <li>브랜드 언급 및 인용</li>
+            <li>로컬 비즈니스 리스팅</li>
+            <li>웹지도 등록 정보 권위도</li>
+            <li>사용자 경험 신호</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Process Section -->
+  <section class="process">
+    <div class="process-container">
+      <h2 class="section-title">구글맵 SEO 프로세스</h2>
+      <p class="section-subtitle">체계적인 단계별 구글맵 최적화 과정</p>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">구글맵 SEO 감사</h3>
+          <p class="step-desc">현재 웹지도 등록 정보의 구글맵 SEO 상태 분석 및 개선점 파악</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">키워드 연구</h3>
+          <p class="step-desc">타겟 시장 및 경쟁사 분석을 통한 최적의 키워드 선정</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">기술적 최적화</h3>
+          <p class="step-desc">웹지도 등록 정보 구조, 속도, 모바일 친화성 등 기술적 요소 개선</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3 class="step-title">플레이스 정보 최적화</h3>
+          <p class="step-desc">키워드 중심의 고품질 플레이스 정보 개발 및 최적화</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3 class="step-title">링크 빌딩</h3>
+          <p class="step-desc">전략적인 백링크 확보를 통한 도메인 권위 향상</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3 class="step-title">모니터링 및 조정</h3>
+          <p class="step-desc">성과 분석 및 지속적인 전략 최적화</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="faq-container">
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <div class="faq-item">
+        <div class="faq-question">구글맵 SEO 효과가 나타나기까지 얼마나 걸리나요?</div>
+        <div class="faq-answer">
+          구글맵 SEO는 즉각적인 결과보다는 중장기적인 투자로 봐야 합니다. 일반적으로 초기 변화는 4-6주 내에 나타나기 시작할 수 있지만, 경쟁이 치열한 키워드에서 상위 지도 검색 결과를 얻기 위해서는 보통 3-6개월 정도가 소요됩니다. 웹지도 등록 정보의 현재 상태, 도메인 권위, 경쟁 수준, 산업 분야 등 여러 요소에 따라 달라질 수 있습니다. 스터프타스는 단계적인 목표 설정과 정기적인 성과 보고를 통해 지속적인 개선을 보여드립니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">네이버와 구글맵 지도 노출 전략의 차이점은 무엇인가요?</div>
+        <div class="faq-answer">
+          구글과 네이버는 검색 알고리즘에 차이가 있어 최적화 전략도 다릅니다. 구글은 플레이스 정보 품질, 사용자 경험, 백링크 등 다양한 신호를 복합적으로 평가하며, 글로벌 시장에 최적화되어 있습니다. 반면 네이버는 국내 특화된 알고리즘으로 블로그, 카페 등 자사 플랫폼의 플레이스 정보를 우선시하는 경향이 있습니다. 스터프타스는 두 검색 엔진의 특성을 모두 이해하고, 타겟 시장에 맞는 맞춤형 지도 노출 전략을 제공합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">어떤 비즈니스에 구글맵 SEO가 더 효과적인가요?</div>
+        <div class="faq-answer">
+          글로벌 시장을 목표로 하거나, 해외 고객을 유치하고자 하는 모든 비즈니스에 구글맵 SEO는 필수적입니다. 특히 수출 중심 제조업, 외국인 대상 서비스업(관광, 교육 등), K-뷰티, K-푸드와 같은 한류 플레이스 정보 관련 기업, 글로벌 앱/서비스 등에 매우 효과적입니다. 또한 B2B 비즈니스의 경우 전문적인 정보를 찾는 해외 바이어들이 주로 구글을 활용하기 때문에 구글맵 SEO는 중요한 마케팅 채널이 됩니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">기존에 운영 중인 구글맵 SEO와 함께 진행할 수 있나요?</div>
+        <div class="faq-answer">
+          네, 가능합니다. 스터프타스는 귀사의 기존 지도 노출 전략과 팀을 보완하는 역할을 할 수 있습니다. 특히 글로벌 시장에 특화된 구글맵 SEO를 기존 국내 중심의 지도 노출 전략에 추가하는 경우가 많습니다. 초기 상담에서 기존 구글맵 SEO 활동을 검토하고, 중복 없이 시너지를 낼 수 있는 맞춤형 서비스 범위를 제안해 드립니다. 필요시 기존 구글맵 SEO 담당자나 에이전시와의 협업도 가능합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">플레이스 정보 제작도 지원하나요?</div>
+        <div class="faq-answer">
+          네, 스터프타스는 구글맵 SEO에 최적화된 고품질 플레이스 정보 제작 서비스를 제공합니다. 서비스 패키지에 따라 정기적인 블로그 포스트, 랜딩 장소 정보, 제품 설명 등 다양한 플레이스 정보를 제작해 드립니다. 특히 다국어 플레이스 정보의 경우, 단순 번역이 아닌 현지 문화와 검색 습관을 고려한 현지화 작업을 통해 효과적인 구글맵 SEO 플레이스 정보를 제공합니다. 플레이스 정보 제작 범위는 계약 전 상세히 협의하여 결정합니다.
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+<section class="features">
+  <h2 class="section-title">구글맵 SEO 핵심 기술 요소</h2>
+  <div class="features-container">
+    <div class="feature">
+      <div class="feature-content">
+        <h3>Google 비즈니스 프로필 최적화</h3>
+        <p>매장명, 카테고리, 설명, 운영시간, 연락처, 웹사이트 링크 등 필수 정보를 명확하게 구성하여 검색 시 우선 노출될 수 있도록 설정합니다.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-content">
+        <h3>지도 기반 키워드 전략</h3>
+        <p>지역명 + 업종 조합 키워드(예: '강남 치과', '성수동 브런치')를 활용하여 로컬 검색에 최적화된 노출을 유도합니다.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-content">
+        <h3>리뷰 유도 및 관리 시스템</h3>
+        <p>고객 리뷰 수 증가, 평점 개선, 응답률 향상을 통해 Google이 신뢰하는 비즈니스로 인식되도록 관리합니다.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-content">
+        <h3>행동 유도 요소 강화</h3>
+        <p>'길찾기', '전화', '웹사이트 방문', '예약' 등 고객 행동 유도 버튼을 활성화하여 실제 방문이나 문의로 이어지도록 구성합니다.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-content">
+        <h3>Google 인사이트 분석</h3>
+        <p>지도 노출 수, 검색어 유형, 행동 전환 클릭률 등을 실시간으로 분석하여 최적화 전략을 지속적으로 조정합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>무료 구글맵 SEO 분석을 받아보세요</h2>
+      <p>귀사 웹지도 등록 정보의 현재 구글맵 SEO 상태를 진단하고 개선 방향을 제시해 드립니다.</p>
+      
+      <div class="contact-form" id="contact-form">
+        <form action="https://formsubmit.co/stufftas@gmail.com" method="POST">
+          <!-- 이메일 제목 설정 -->
+          <input type="hidden" name="_subject" value="[구글맵 SEO 문의]">
+          <!-- 전송 후 이동할 페이지 -->
+          <input type="hidden" name="_next" value="https://artta0812.github.io/stufftas--homepage/thanks.html">
+          <!-- CAPTCHA 비활성화 -->
+          <input type="hidden" name="_captcha" value="false">
+          <!-- 자동 회신 내용 -->
+          <input type="hidden" name="_autoresponse" value="문의해주셔서 감사합니다! Stufftas에서 빠르게 연락드리겠습니다.">
+      
+          <div class="form-group">
+            <label for="name" class="form-label">이름</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="phone" class="form-label">연락처</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="company" class="form-label">업체명</label>
+            <input type="text" id="company" name="company" class="form-control" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="budget" class="form-label">월 광고 예산</label>
+            <select id="budget" name="budget" class="form-control" required>
+              <option value="">선택해주세요</option>
+              <option value="~300만원">300만원 이하</option>
+              <option value="300~500만원">300~500만원</option>
+              <option value="500~1000만원">500~1000만원</option>
+              <option value="1000만원~">1000만원 이상</option>
+            </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="message" class="form-label">문의 내용</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+          </div>
+      
+          <button type="submit" class="submit-button">무료 컨설팅 신청하기</button>
+        </form>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+ <!-- Footer -->
+ <footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      
+      <p>스터프타스는 데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공하는 전문 대행사입니다.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/stufftas_marketing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://blog.naver.com/stufftas" target="_blank" rel="noopener">
+          <span class="naver-icon">N</span>
+        </a>
+        <a href="https://www.linkedin.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <h3>서비스</h3>
+      <a href="/services/naver-place.html">네이버 플레이스 광고</a>
+      <a href="/services/naver-search.html">네이버 검색광고</a>
+      <a href="/services/google-seo.html">구글 SEO</a>
+      <a href="/services/meta-ads.html">메타 광고</a>
+    </div>
+    
+    <div class="footer-links">
+      <h3>회사 정보</h3>
+      <a href="#">회사 소개</a>
+      <a href="#">팀 소개</a>
+      <a href="#">블로그</a>
+      <a href="#">채용 정보</a>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    © 2025 Stufftas 스터프타스. All rights reserved.
+  </div>
+</footer>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 폼이 존재하는지 확인
+    const form = document.querySelector('#contact-form form');
+    if (!form) return;
+    
+    // 제출 버튼 찾기
+    const submitButton = form.querySelector('.submit-button');
+    const originalText = submitButton ? submitButton.textContent : '문의하기';
+    
+    // 폼 제출 이벤트 리스너
+    form.addEventListener('submit', function() {
+      // 제출 버튼 상태 변경
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = '제출 중...';
+        
+        // 5초 후 버튼 상태 복원 (타임아웃은 안전장치)
+        setTimeout(function() {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }, 5000);
+      }
+      
+      // 폼 제출은 기본 HTML 방식으로 처리 (preventDefault 호출하지 않음)
+      return true;
+    });
+  });
+</script>
+</body>
+</html>

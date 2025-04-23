@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="리뷰 마케팅 서비스 - 스터프타스 마케팅">
+  <meta property="og:description" content="긍정적인 고객 경험을 활용한 신뢰도 향상 전략으로 비즈니스 성장을 이끌어내세요">
+  <meta property="og:image" content="/images/logo.png">
+  <title>리뷰 마케팅 - 스터프타스 마케팅</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 0.8rem 5%;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    header .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    header .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    header .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4b0096;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #4b0096;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4b0096;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .service-hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(160deg, #2e8b57, #3cb371);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/placeholder/1200/600') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .service-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .service-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .service-cta {
+      display: inline-block;
+      background: #fff;
+      color: #2e8b57;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background: #f0f0f0;
+    }
+    
+    /* Overview Section */
+    .overview {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .overview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4rem;
+    }
+    
+    .overview-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #333;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .overview-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .overview-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Stats Section */
+    .stats {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-value {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    
+    /* Review Platforms Section */
+    .platforms {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .platforms-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .platform-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .platform-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .platform-icon {
+      font-size: 3rem;
+      color: #2e8b57;
+      margin-bottom: 1.5rem;
+    }
+    
+    .platform-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-item {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-desc {
+      color: #666;
+    }
+    
+    /* Challenges Section */
+    .challenges {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .challenges::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 30%;
+      background: linear-gradient(90deg, rgba(46,139,87,0), rgba(46,139,87,0.05));
+      z-index: 0;
+    }
+    
+    .challenges-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .challenges-items {
+      margin-top: 3rem;
+    }
+    
+    .challenge-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .challenge-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .challenge-icon {
+      flex: 0 0 80px;
+      height: 80px;
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    
+    .challenge-content {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .challenge-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    .challenge-desc {
+      color: #666;
+    }
+    
+    /* Process Section */
+    .process {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      position: relative;
+    }
+    
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+    
+    .step {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+      padding: 1rem;
+      text-align: center;
+      z-index: 1;
+    }
+    
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .step-desc {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    /* Case Studies Section */
+    .case-studies {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .case-studies-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .case-study {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .case-study-content {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .case-study-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    .case-study-industry {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .case-study-text {
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    
+    .case-study-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .stat {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .case-study-image {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .case-study-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 1.5rem;
+    }
+    
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding-right: 30px;
+    }
+    
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 1.5rem;
+      color: #2e8b57;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-question.active::after {
+      content: '-';
+    }
+    
+    .faq-answer {
+      color: #666;
+      display: none;
+      padding-top: 0.5rem;
+    }
+    
+    .faq-answer.show {
+      display: block;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 5%;
+      background: linear-gradient(160deg, #2e8b57, #3cb371);
+      color: #fff;
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #2e8b57;
+    }
+    
+    .submit-button {
+      background: linear-gradient(to right, #2e8b57, #3cb371);
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .submit-button:hover {
+      opacity: 0.9;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 5%;
+      background: #333;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-links h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.7rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+    }
+    
+    .footer-contact {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-contact h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #fff;
+    }
+    
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .service-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .step {
+        flex: 100%;
+        margin-bottom: 2rem;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+      
+      .case-study {
+        flex-direction: column;
+      }
+      
+      .case-study-image {
+        order: -1;
+      }
+      
+      .contact-form {
+        padding: 2rem;
+      }
+      
+      .platforms-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    }
+    .form-control, .form-select {
+  color: #333;
+  background-color: #fff;
+}
+.form-status {
+  display: none;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.form-status.success {
+  display: block;
+  background: rgba(0, 128, 0, 0.1);
+  color: green;
+  border: 1px solid rgba(0, 128, 0, 0.3);
+}
+.form-status.error {
+  display: block;
+  background: rgba(255, 0, 0, 0.1);
+  color: red;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.png" alt="Stufftas Logo">
+        <span class="logo-text">스터프타스</span>
+      </a>
+    </div>
+    <nav>
+      <a href="../index.html">홈</a>
+      <a href="../index.html#services">서비스</a>
+      <a href="../index.html#testimonials">고객 후기</a>
+      <a href="../index.html#contact">문의하기</a>
+    </nav>
+  </header>
+  
+  
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <h1>리뷰 마케팅 서비스</h1>
+      <p>긍정적인 고객 경험을 활용한 신뢰도 향상 전략으로 비즈니스 성장을 이끌어내세요.</p>
+      <a href="#contact-form" class="service-cta">무료 상담 신청</a>
+    </div>
+  </section>
+  
+  <!-- Overview Section -->
+  <section class="overview">
+    <div class="overview-container">
+      <div class="overview-content">
+        <h2 class="section-title">리뷰 마케팅의 중요성</h2>
+        <p class="section-subtitle">온라인 평판 관리가 비즈니스 성공의 핵심이 된 시대</p>
+        <p>고객 리뷰는 현대 소비자의 구매 결정 과정에서 가장 중요한 요소 중 하나입니다. 연구에 따르면 소비자의 93%가 온라인 리뷰가 구매 결정에 영향을 미친다고 응답했으며, 84%의 소비자는 온라인 리뷰를 개인 추천만큼 신뢰한다고 합니다.</p>
+        <br>
+        <p>스터프타스의 리뷰 마케팅 서비스는 고객의 긍정적인 경험을 체계적으로 수집하고 관리하여 온라인 평판을 향상시키는 전략적인 접근법을 제공합니다. 자연스러운 리뷰 증가, 부정적 피드백 관리, 리뷰 플랫폼 최적화를 통해 비즈니스의 신뢰도를 높이고 새로운 고객 유치와 매출 증대로 이어지게 합니다.</p>
+      </div>
+      <div class="overview-image">
+        <svg viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+          <defs>
+            <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2e8b57"/>
+              <stop offset="100%" stop-color="#3cb371"/>
+            </linearGradient>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffd700"/>
+              <stop offset="100%" stop-color="#ffb700"/>
+            </linearGradient>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#00000033"/>
+            </filter>
+            <pattern id="pattern-circles" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="1.5" fill="#3cb37133"/>
+            </pattern>
+          </defs>
+          
+          <!-- 배경 패턴 -->
+          <rect x="0" y="0" width="500" height="350" fill="white"/>
+          <rect x="0" y="0" width="500" height="350" fill="url(#pattern-circles)"/>
+          
+          <!-- 메인 카드 -->
+          <rect x="50" y="50" width="400" height="250" rx="20" fill="white" stroke="#e0e0e0" stroke-width="2" filter="url(#shadow)"/>
+          
+          <!-- 상단 장식 -->
+          <rect x="50" y="50" width="400" height="40" rx="20" fill="url(#greenGradient)"/>
+          <text x="250" y="77" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">리뷰 마케팅</text>
+          
+          <!-- 스마트폰 이미지 (리뷰 화면) -->
+          <g transform="translate(100, 120)">
+            <rect x="0" y="0" width="90" height="160" rx="10" fill="#444" filter="url(#shadow)"/>
+            <rect x="5" y="10" width="80" height="140" rx="3" fill="#fff"/>
+            
+            <!-- 리뷰 스크린 내용 -->
+            <rect x="15" y="20" width="60" height="10" rx="2" fill="#f0f0f0"/>
+            <rect x="15" y="35" width="40" height="5" rx="2" fill="#f0f0f0"/>
+            
+            <!-- 별점 -->
+            <g transform="scale(0.5) translate(30, 100)">
+              <path d="M15,5 L18,12 L26,12 L20,17 L22,25 L15,20 L8,25 L10,17 L4,12 L12,12 Z" fill="url(#goldGradient)"/>
+              <path d="M40,5 L43,12 L51,12 L45,17 L47,25 L40,20 L33,25 L35,17 L29,12 L37,12 Z" fill="url(#goldGradient)"/>
+              <path d="M65,5 L68,12 L76,12 L70,17 L72,25 L65,20 L58,25 L60,17 L54,12 L62,12 Z" fill="url(#goldGradient)"/>
+              <path d="M90,5 L93,12 L101,12 L95,17 L97,25 L90,20 L83,25 L85,17 L79,12 L87,12 Z" fill="url(#goldGradient)"/>
+              <path d="M115,5 L118,12 L126,12 L120,17 L122,25 L115,20 L108,25 L110,17 L104,12 L112,12 Z" fill="url(#goldGradient)" fill-opacity="0.3"/>
+            </g>
+            
+            <!-- 리뷰 텍스트 라인 -->
+            <rect x="15" y="65" width="60" height="4" rx="2" fill="#f0f0f0"/>
+            <rect x="15" y="73" width="60" height="4" rx="2" fill="#f0f0f0"/>
+            <rect x="15" y="81" width="45" height="4" rx="2" fill="#f0f0f0"/>
+            
+            <!-- 하단 버튼 -->
+            <rect x="25" y="95" width="40" height="15" rx="7.5" fill="url(#greenGradient)"/>
+            <text x="45" y="105" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">리뷰 등록</text>
+            
+            <!-- 스마트폰 홈 버튼 -->
+            <circle cx="45" cy="155" r="5" stroke="#ddd" stroke-width="1" fill="none"/>
+          </g>
+          
+          <!-- 우측 컨텐츠 영역 -->
+          <g transform="translate(220, 120)">
+            <!-- 제목 -->
+            <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">리뷰 이벤트</text>
+            <path d="M0,10 L130,10" stroke="#3cb371" stroke-width="3" stroke-linecap="round"/>
+            
+            <!-- 설명 텍스트 -->
+            <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" fill="#444">소중한 고객님의 리뷰를</text>
+            <text x="0" y="55" font-family="Arial, sans-serif" font-size="14" fill="#444">남겨주시면 다양한 혜택을</text>
+            <text x="0" y="75" font-family="Arial, sans-serif" font-size="14" fill="#444">드립니다!</text>
+            
+            <!-- 아이콘 세트 -->
+            <g transform="translate(0, 100)">
+              <!-- 아이콘 1: 선물 -->
+              <circle cx="25" cy="25" r="20" fill="#f0f0f0"/>
+              <g transform="translate(12, 13)">
+                <rect x="0" y="5" width="25" height="18" fill="#fcb045" rx="2"/>
+                <rect x="8" y="0" width="9" height="9" fill="#fcb045" rx="1"/>
+                <path d="M12.5,5 L12.5,19" stroke="white" stroke-width="1.5"/>
+                <path d="M5,12 L20,12" stroke="white" stroke-width="1.5"/>
+              </g>
+              <text x="25" y="60" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">할인쿠폰</text>
+              
+              <!-- 아이콘 2: 포인트 -->
+              <g transform="translate(70, 0)">
+                <circle cx="25" cy="25" r="20" fill="#f0f0f0"/>
+                <text x="25" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="url(#greenGradient)" text-anchor="middle">P</text>
+                <text x="25" y="60" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">포인트적립</text>
+              </g>
+              
+              <!-- 아이콘 3: 이벤트 참여 -->
+              <g transform="translate(140, 0)">
+                <circle cx="25" cy="25" r="20" fill="#f0f0f0"/>
+                <text x="25" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e74c3c" text-anchor="middle">♥</text>
+                <text x="25" y="60" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">추첨이벤트</text>
+              </g>
+            </g>
+          </g>
+          
+          <!-- 이벤트 뱃지 -->
+          <g transform="translate(400, 80)">
+            <circle cx="25" cy="25" r="25" fill="url(#goldGradient)" filter="url(#shadow)"/>
+            <text x="25" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">EVENT</text>
+            <text x="25" y="36" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">진행중</text>
+          </g>
+        </svg>
+      </div>  
+    </section>
+  
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-container">
+      <h2 class="section-title">리뷰의 영향력</h2>
+      <p class="section-subtitle">수치로 보는 고객 리뷰의 중요성</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">93%</div>
+          <p class="stat-label">리뷰를 참고해 구매 결정을 내리는 소비자</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4.6x</div>
+          <p class="stat-label">리뷰가 많은 상품의 전환율</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">70%</div>
+          <p class="stat-label">별점 상승 시 매출 증가율</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">3.3x</div>
+          <p class="stat-label">부정 리뷰의 영향력</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Review Platforms Section -->
+  <section class="platforms">
+    <div class="platforms-container">
+      <h2 class="section-title">리뷰 플랫폼</h2>
+      <p class="section-subtitle">관리되는 주요 리뷰 플랫폼</p>
+      
+      <div class="platforms-grid">
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-store"></i></div>
+          <h3 class="platform-title">네이버 플레이스</h3>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3 class="platform-title">구글 마이비즈니스</h3>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fab fa-facebook"></i></div>
+          <h3 class="platform-title">페이스북</h3>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fab fa-instagram"></i></div>
+          <h3 class="platform-title">인스타그램</h3>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3 class="platform-title">쇼핑몰 리뷰</h3>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3 class="platform-title">앱스토어</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-container">
+      <h2 class="section-title">서비스 특징</h2>
+      <p class="section-subtitle">스터프타스 리뷰 마케팅 서비스의 차별화된 강점</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-search"></i></div>
+          <h3 class="feature-title">리뷰 현황 분석</h3>
+          <p class="feature-desc">현재의 온라인 평판 상태를 종합적으로 분석하고 개선 기회를 파악합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="feature-title">리뷰 증가 전략</h3>
+          <p class="feature-desc">자연스러운 방법으로 긍정적인 고객 리뷰를 유도하는 맞춤형 전략을 수립합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-reply"></i></div>
+          <h3 class="feature-title">리뷰 응대 관리</h3>
+          <p class="feature-desc">전문적이고 일관된 리뷰 응대를 통해 고객과의 소통을 강화합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="feature-title">부정 리뷰 대응</h3>
+          <p class="feature-desc">부정적인 리뷰에 대한 전략적 대응으로 위기를 기회로 전환합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3 class="feature-title">리뷰 활용 마케팅</h3>
+          <p class="feature-desc">긍정적인 고객 피드백을 마케팅 자산으로 활용하는 전략을 제공합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+          <h3 class="feature-title">자동화 시스템</h3>
+          <p class="feature-desc">리뷰 모니터링 및 응대를 자동화하여 효율적인 관리가 가능하도록 합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Challenges Section -->
+  <section class="challenges">
+    <div class="challenges-container">
+      <h2 class="section-title">리뷰 관리의 어려움</h2>
+      <p class="section-subtitle">전문가의 도움이 필요한 이유</p>
+      
+      <div class="challenges-items">
+        <div class="challenge-item">
+          <div class="challenge-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="challenge-content">
+            <h3 class="challenge-title">시간 부족</h3>
+            <p class="challenge-desc">리뷰 모니터링, 응대, 관리는 지속적인 시간 투자가 필요한 업무입니다. 많은 사업주들이 핵심 비즈니스 운영에 집중하느라 체계적인 리뷰 관리에 충분한 시간을 할애하기 어렵습니다. 스터프타스는 전담 전문가 팀이 이 모든 과정을 대신 처리해 드립니다.</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="challenge-content">
+            <h3 class="challenge-title">다양한 플랫폼 관리</h3>
+            <p class="challenge-desc">네이버, 구글, 페이스북, 인스타그램 등 다양한 플랫폼에 분산된 리뷰를 일일이 확인하고 관리하는 것은 매우 복잡합니다. 스터프타스는 통합 모니터링 시스템을 통해 모든 플랫폼의 리뷰를 한 곳에서 관리합니다.</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="challenge-content">
+            <h3 class="challenge-title">전문적 응대의 어려움</h3>
+            <p class="challenge-desc">특히 부정적인 리뷰에 대해 감정적으로 대응하지 않고 전문적이고 일관된 응대를 유지하는 것은 쉽지 않습니다. 스터프타스는 수년간의 경험을 바탕으로 개발된 응대 프로토콜을 통해 모든 상황에 적절한 대응을 제공합니다.</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <div class="challenge-content">
+            <h3 class="challenge-title">데이터 분석의 부재</h3>
+            <p class="challenge-desc">단순히 리뷰에 응대하는 것을 넘어, 리뷰 데이터를 분석하여 비즈니스 개선 인사이트를 도출하는 것이 중요합니다. 스터프타스는 고급 분석 도구를 활용하여 리뷰 트렌드, 공통 피드백, 개선 기회를 파악하여 실질적인 비즈니스 성장을 지원합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Process Section -->
+  <section class="process">
+    <div class="process-container">
+      <h2 class="section-title">리뷰 마케팅 프로세스</h2>
+      <p class="section-subtitle">체계적인 단계별 접근으로 온라인 평판 향상</p>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">현황 분석</h3>
+          <p class="step-desc">현재 온라인 평판 상태와 경쟁사 분석</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">전략 수립</h3>
+          <p class="step-desc">비즈니스 특성에 맞는 리뷰 관리 전략 개발</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">리뷰 유도</h3>
+          <p class="step-desc">효과적인 방법으로 긍정 리뷰 증가 유도</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3 class="step-title">플랫폼 최적화</h3>
+          <p class="step-desc">주요 리뷰 플랫폼 프로필 개선 및 최적화</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3 class="step-title">리뷰 모니터링</h3>
+          <p class="step-desc">실시간 리뷰 모니터링 및 신속한 응대</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3 class="step-title">성과 분석</h3>
+          <p class="step-desc">데이터 기반 성과 측정 및 전략 개선</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="faq-container">
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <div class="faq-item">
+        <div class="faq-question">리뷰를 늘리는 방법은 합법적인가요?</div>
+        <div class="faq-answer">
+          스터프타스는 100% 합법적이고 윤리적인 방법으로만 리뷰를 관리합니다. 가짜 리뷰 작성이나 허위 리뷰 게시와 같은 불법적인 방법은 절대 사용하지 않습니다. 저희의 접근 방식은 실제 고객의 긍정적인 경험을 자연스럽게 리뷰로 이어지게 하는 프로세스를 구축하고, 고객 만족도를 실질적으로 향상시키는 것에 중점을 둡니다. 모든 리뷰 관리 활동은 각 플랫폼의 정책과 가이드라인을 준수합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">부정적인 리뷰는 어떻게 처리하나요?</div>
+        <div class="faq-answer">
+          부정적인 리뷰는 비즈니스 개선의 기회로 접근합니다. 먼저 각 부정 리뷰에 대해 공감하고 문제 해결 의지를 보여주는 전문적인 응대를 제공합니다. 가능한 경우 오프라인에서의 추가 대화를 통해 문제를 해결하고, 이후 해당 리뷰에 대한 업데이트를 요청합니다. 동시에 부정 리뷰에서 제기된 문제점을 분석하여 실질적인 비즈니스 개선 사항을 도출하고, 이를 클라이언트에게 제안합니다. 부정 리뷰를 삭제하는 것보다 적절히 대응하고 개선하는 것이 장기적인 평판 관리에 더 효과적입니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">어떤 비즈니스에 리뷰 마케팅이 효과적인가요?</div>
+        <div class="faq-answer">
+          리뷰 마케팅은 고객 리뷰가 구매 결정에 큰 영향을 미치는 모든 업종에 효과적입니다. 특히 레스토랑, 카페, 호텔, 미용실, 병원, 치과, 학원, 소매점, 이커머스, 앱 서비스 등 소비자의 선택권이 많고 사전 경험이 중요한 업종에서 더욱 큰 효과를 볼 수 있습니다. 또한 신규 사업이나 브랜드 이미지 개선이 필요한 비즈니스, 경쟁이 치열한 시장에서 차별화가 필요한 업체에도 매우 유용합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">리뷰 마케팅의 효과는 언제 나타나나요?</div>
+        <div class="faq-answer">
+          리뷰 마케팅은 점진적으로 효과가 나타나는 장기적인 전략입니다. 일반적으로 초기 설정과 전략 수립 후 1-2개월 내에 리뷰 응대 품질 향상과 같은 첫 번째 변화가 나타납니다. 리뷰 수와 평점의 개선은 약 2-3개월 후부터 가시적으로 확인할 수 있으며, 이에 따른 비즈니스 성과(방문객 증가, 매출 상승 등)는 3-6개월 차부터 본격적으로 나타납니다. 물론 비즈니스 유형, 기존 리뷰 상태, 서비스 품질 등에 따라 효과 발현 시기는 달라질 수 있습니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">서비스 요금은 어떻게 구성되나요?</div>
+        <div class="faq-answer">
+          리뷰 마케팅 서비스 요금은 비즈니스 규모, 현재 리뷰 상태, 목표, 관리할 플랫폼 수, 필요한 서비스 범위 등에 따라 맞춤형으로 책정됩니다. 일반적으로 초기 분석 및 전략 수립 비용과 월간 관리 비용으로 구성되며, 추가적인 콘텐츠 제작이나 캠페인 실행 등의 서비스가 포함될 수 있습니다. 정확한 서비스 견적은 무료 초기 상담을 통해 비즈니스 상황을 정확히 파악한 후 제안드립니다.
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>무료 온라인 평판 분석을 받아보세요</h2>
+      <p>현재 리뷰 상태를 분석하고 비즈니스에 맞는 리뷰 마케팅 전략을 제안해 드립니다.</p>
+      
+      <div class="contact-form" id="contact-form">
+        <form id="contact-form-element" action="https://formsubmit.co/stufftas@gmail.com" method="POST">
+          <!-- FormSubmit 설정 -->
+          <input type="hidden" name="_subject" value="[리뷰 마케팅 문의]">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_autoresponse" value="문의 감사합니다! Stufftas에서 빠르게 연락드리겠습니다.">
+          <input type="hidden" name="_next" value="https://artta0812.github.io/stufftas--homepage/thanks.html">
+          
+          <!-- 허니팟 필드 (스팸 방지) -->
+          <input type="text" name="_honey" style="display:none">
+          
+          <div class="form-group">
+            <label for="name" class="form-label">이름</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">연락처</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="business" class="form-label">비즈니스 이름</label>
+            <input type="text" id="business" name="business" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="industry" class="form-label">업종</label>
+            <select id="industry" name="industry" class="form-control" required>
+              <option value="">선택해주세요</option>
+              <option value="레스토랑/카페">레스토랑/카페</option>
+              <option value="호텔/숙박">호텔/숙박</option>
+              <option value="뷰티/웰니스">뷰티/웰니스</option>
+              <option value="의료/건강">의료/건강</option>
+              <option value="교육/학원">교육/학원</option>
+              <option value="소매/쇼핑">소매/쇼핑</option>
+              <option value="서비스업">서비스업</option>
+              <option value="앱/온라인서비스">앱/온라인서비스</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">현재 리뷰 관련 어려움이나 목표</label>
+            <textarea id="message" name="message" rows="5" class="form-control"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-button">무료 분석 신청하기</button>
+        </form>
+        <div id="form-status" class="form-status"></div>
+      </div>
+  </section>
+  
+  <!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+    
+      <p>스터프타스는 데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공하는 전문 대행사입니다.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/stufftas_marketing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://blog.naver.com/stufftas" target="_blank" rel="noopener">
+          <span class="naver-icon">N</span>
+        </a>
+        <a href="https://www.linkedin.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <h3>서비스</h3>
+      <a href="/services/naver-place.html">네이버 플레이스 광고</a>
+      <a href="/services/naver-search.html">네이버 검색광고</a>
+      <a href="/services/google-seo.html">구글 SEO</a>
+      <a href="/services/meta-ads.html">메타 광고</a>
+    </div>
+    
+    <div class="footer-links">
+      <h3>회사 정보</h3>
+      <a href="#">회사 소개</a>
+      <a href="#">팀 소개</a>
+      <a href="#">블로그</a>
+      <a href="#">채용 정보</a>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    © 2025 Stufftas 스터프타스. All rights reserved.
+  </div>
+</footer>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form-element');
+    const formStatus = document.getElementById('form-status');
+  
+    if (form) {
+      // 기본 폼 제출 방식을 사용하고, 사용자 피드백만 제공
+      form.addEventListener('submit', function() {
+        // 제출 버튼 비활성화 및 텍스트 변경
+        const submitButton = form.querySelector('.submit-button');
+        submitButton.disabled = true;
+        submitButton.textContent = '제출 중...';
+        
+        // 상태 표시 - 사용자에게 제출 중임을 알림
+        if (formStatus) {
+          formStatus.style.display = 'block';
+          formStatus.className = 'form-status success';
+          formStatus.textContent = '제출 중입니다. 잠시만 기다려주세요...';
+        }
+        
+        // FormSubmit은 기본 HTML 폼 제출 방식으로 작동하므로
+        // 기본 제출 동작을 방해하지 않음
+        return true;
+      });
+    }
+  });
+  </script>
+
+</body>
+</html>

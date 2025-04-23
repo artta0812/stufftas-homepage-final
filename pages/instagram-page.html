@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="인스타그램 콘텐츠 제작 서비스 - 스터프타스 마케팅">
+  <meta property="og:description" content="브랜드 아이덴티티에 맞는 매력적인 인스타그램 콘텐츠로 팔로워를 증가시키고 매출을 높이세요">
+  <meta property="og:image" content="/images/logo.png">
+  <title>인스타그램 콘텐츠 제작 - 스터프타스 마케팅</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 0.8rem 5%;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    header .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    header .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    header .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4b0096;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #4b0096;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4b0096;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .service-hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(160deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/placeholder/1200/600') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .service-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .service-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .service-cta {
+      display: inline-block;
+      background: #fff;
+      color: #833ab4;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background: #f0f0f0;
+    }
+    
+    /* Overview Section */
+    .overview {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .overview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4rem;
+    }
+    
+    .overview-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #333;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .overview-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .overview-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Stats Section */
+    .stats {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-value {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    
+    /* Content Types Section */
+    .content-types {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .content-types-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .content-types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .content-type {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .content-type:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .content-type-image {
+      width: 100%;
+      height: 200px;
+      background: #f0f0f0;
+    }
+    
+    .content-type-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .content-type-content {
+      padding: 1.5rem;
+    }
+    
+    .content-type-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .content-type-desc {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-item {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-desc {
+      color: #666;
+    }
+    
+    /* Process Section */
+    .process {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      position: relative;
+    }
+    
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+    
+    .step {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+      padding: 1rem;
+      text-align: center;
+      z-index: 1;
+    }
+    
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .step-desc {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    
+    .portfolio-image {
+      width: 100%;
+      height: 300px;
+      background: #f0f0f0;
+    }
+    
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-image img {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+      color: #fff;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+    }
+    
+    .portfolio-category {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+    
+    .portfolio-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .portfolio-desc {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    /* Case Studies Section */
+    .case-studies {
+      padding: 5rem 5%;
+      background-color: #f9f9f9;
+    }
+    
+    .case-studies-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .case-study {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .case-study-content {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .case-study-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    .case-study-industry {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .case-study-text {
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    
+    .case-study-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .stat {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .case-study-image {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .case-study-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 5rem 5%;
+      background-color: #fff;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 1.5rem;
+    }
+    
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding-right: 30px;
+    }
+    
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 1.5rem;
+      color: #833ab4;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-question.active::after {
+      content: '-';
+    }
+    
+    .faq-answer {
+      color: #666;
+      display: none;
+      padding-top: 0.5rem;
+    }
+    
+    .faq-answer.show {
+      display: block;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 5%;
+      background: linear-gradient(160deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background: #fff;
+      border-radius: 10px;
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #833ab4;
+    }
+    
+    .submit-button {
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .submit-button:hover {
+      opacity: 0.9;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 5%;
+      background: #333;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-links h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.7rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+    }
+    
+    .footer-contact {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-contact h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #fff;
+    }
+    
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .service-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .step {
+        flex: 100%;
+        margin-bottom: 2rem;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+      
+      .case-study {
+        flex-direction: column;
+      }
+      
+      .case-study-image {
+        order: -1;
+      }
+      
+      .contact-form {
+        padding: 2rem;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+    .form-label {
+      color: #333 !important; /* 어두운 색상으로 설정 */
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-control, .form-select {
+      color: #333 !important; /* 입력 필드 텍스트 색상 */
+      background-color: #fff !important; /* 배경색 흰색으로 설정 */
+      border: 1px solid #ddd;
+    }
+    
+    .form-control::placeholder {
+      color: #999 !important; /* 플레이스홀더 색상 */
+      opacity: 1;
+    }
+    
+    .submit-button {
+      color: #fff !important; /* 버튼 텍스트 색상 */
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+ <!-- pages/instagram-page.html 의 헤더 부분 -->
+<!-- pages/instagram-page.html -->
+<header>
+  <div class="logo-container">
+    <a href="../index.html" class="logo-link">
+      <img src="../images/logo.png" alt="Stufftas Logo">
+      <span class="logo-text">스터프타스</span>
+    </a>
+  </div>
+  <nav>
+    <a href="../index.html">홈</a>
+    <a href="../index.html#services">서비스</a>
+    <a href="../index.html#testimonials">고객 후기</a>
+    <a href="../index.html#contact">문의하기</a>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <h1>인스타그램 콘텐츠 제작 서비스</h1>
+      <p>브랜드 아이덴티티에 맞는 매력적인 인스타그램 콘텐츠로 팔로워를 증가시키고 비즈니스 성장을 실현하세요.</p>
+      <a href="#contact-form" class="service-cta">무료 상담 받기</a>
+    </div>
+  </section>
+  
+  <!-- Overview Section -->
+  <section class="overview">
+    <div class="overview-container">
+      <div class="overview-content">
+        <h2 class="section-title">인스타그램 콘텐츠 마케팅</h2>
+        <p class="section-subtitle">시각적 스토리텔링으로 브랜드 가치를 높이는 전략</p>
+        <p>인스타그램은 전 세계 10억 명 이상의 월간 활성 사용자를 보유한 강력한 마케팅 플랫폼입니다. 시각적 콘텐츠를 중심으로 브랜드의 이야기를 전달하고, 잠재 고객과 소통하며, 판매로 연결할 수 있는 효과적인 채널입니다.</p>
+        <br>
+        <p>스터프타스의 인스타그램 콘텐츠 제작 서비스는 브랜드의 독특한 아이덴티티와 목표 고객을 깊이 이해하고, 매력적이고 일관된 비주얼 스토리텔링을 제공합니다. 전문 디자이너, 사진작가, 카피라이터로 구성된 팀이 귀사의 브랜드에 맞춘 고품질 콘텐츠를 제작하여 팔로워 증가, 참여율 향상, 그리고 궁극적으로 매출 증대로 이어지도록 돕습니다.</p>
+      </div>
+      <div class="overview-image">
+        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=500&h=350&q=80" alt="인스타그램램 마케팅 이미지">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-container">
+      <h2 class="section-title">인스타그램 마케팅의 힘</h2>
+      <p class="section-subtitle">수치로 보는 Instagram 플랫폼 활용도</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">90%</div>
+          <p class="stat-label">인스타그램 사용자 중 비즈니스 계정을 팔로우하는 비율</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">81%</div>
+          <p class="stat-label">신제품·서비스 조사에 Instagram을 활용하는 사용자 비율</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">87%</div>
+          <p class="stat-label">제품 노출 후 실제 행동(웹사이트 방문, 구매 등)을 취하는 사용자 비율</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0.65%</div>
+          <p class="stat-label">Instagram 비즈니스 포스트 평균 참여율</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-types">
+    <div class="content-types-container">
+      <h2 class="section-title">인스타그램 콘텐츠 유형</h2>
+      <p class="section-subtitle">목표와 브랜드에 맞는 다양한 콘텐츠 포맷</p>
+      
+      <div class="content-types-grid">
+        <div class="content-type">
+          <div class="content-type-image" style="display: flex; align-items: center; justify-content: center; height: 200px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 180px; height: 180px;">
+              <defs>
+                <linearGradient id="feed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FCAF45"/>
+                  <stop offset="20%" stop-color="#FD1D1D"/>
+                  <stop offset="40%" stop-color="#E1306C"/>
+                  <stop offset="60%" stop-color="#C13584"/>
+                  <stop offset="80%" stop-color="#833AB4"/>
+                  <stop offset="100%" stop-color="#5851DB"/>
+                </linearGradient>
+              </defs>
+              <rect x="60" y="60" width="80" height="80" rx="20" ry="20" fill="none" stroke="url(#feed-gradient)" stroke-width="4"/>
+              <circle cx="100" cy="100" r="22" fill="none" stroke="url(#feed-gradient)" stroke-width="4"/>
+              <circle cx="125" cy="75" r="6" fill="#C13584"/>
+            </svg>
+          </div>
+          <div class="content-type-content">
+            <h3 class="content-type-title">피드 포스트</h3>
+            <p class="content-type-desc">프로페셔널한 이미지와 그래픽으로 브랜드의 메인 메시지를 전달하는 정통적인 인스타그램 콘텐츠입니다. 최적의 해시태그와 설명으로 검색 노출을 최대화합니다.</p>
+          </div>
+        </div>
+        <div class="content-type">
+          <div class="content-type-image" style="display: flex; align-items: center; justify-content: center; height: 200px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 180px; height: 180px;">
+              <defs>
+                <linearGradient id="stories-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FCAF45"/>
+                  <stop offset="20%" stop-color="#FD1D1D"/>
+                  <stop offset="40%" stop-color="#E1306C"/>
+                  <stop offset="60%" stop-color="#C13584"/>
+                  <stop offset="80%" stop-color="#833AB4"/>
+                  <stop offset="100%" stop-color="#5851DB"/>
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="40" fill="none" stroke="url(#stories-gradient)" stroke-width="4"/>
+              <circle cx="100" cy="100" r="32" fill="#F5F5F5"/>
+              <rect x="70" y="50" width="20" height="4" rx="2" fill="#E1306C"/>
+              <rect x="95" y="50" width="20" height="4" rx="2" fill="#E0E0E0"/>
+              <rect x="120" y="50" width="20" height="4" rx="2" fill="#E0E0E0"/>
+            </svg>
+          </div>
+          <div class="content-type-content">
+            <h3 class="content-type-title">스토리</h3>
+            <p class="content-type-desc">24시간 동안 노출되는 짧고 매력적인 콘텐츠로, 인터랙티브 요소(투표, 질문 등)를 활용해 팔로워와 즉각적인 상호작용을 이끌어 냅니다.</p>
+          </div>
+        </div>
+        <div class="content-type">
+          <div class="content-type-image" style="display: flex; align-items: center; justify-content: center; height: 200px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 180px; height: 180px;">
+              <defs>
+                <radialGradient id="reels-gradient" cx="30%" cy="107%" r="150%">
+                  <stop offset="0%" stop-color="#FCAF45"/>
+                  <stop offset="20%" stop-color="#FD1D1D"/>
+                  <stop offset="40%" stop-color="#E1306C"/>
+                  <stop offset="60%" stop-color="#C13584"/>
+                  <stop offset="80%" stop-color="#833AB4"/>
+                  <stop offset="100%" stop-color="#5851DB"/>
+                </radialGradient>
+              </defs>
+              <rect x="70" y="60" width="60" height="80" rx="8" ry="8" fill="url(#reels-gradient)"/>
+              <polygon points="85,90 105,100 85,110" fill="white"/>
+              <text x="100" y="130" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">♫</text>
+            </svg>
+          </div>
+          <div class="content-type-content">
+            <h3 class="content-type-title">릴스</h3>
+            <p class="content-type-desc">짧고 인상적인 세로형 비디오로, 트렌드와 음악을 활용해 바이럴 가능성이 높은 콘텐츠입니다. 알고리즘이 특히 선호하는 포맷으로 노출을 극대화합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-container">
+      <h2 class="section-title">서비스 특징</h2>
+      <p class="section-subtitle">스터프타스의 인스타그램 콘텐츠 제작 서비스가 특별한 이유</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-fingerprint"></i></div>
+          <h3 class="feature-title">브랜드 맞춤형 전략</h3>
+          <p class="feature-desc">각 브랜드의 고유한 아이덴티티와 목표에 맞춘 콘텐츠 전략 수립으로 차별화된 인스타그램 존재감을 만듭니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-camera"></i></div>
+          <h3 class="feature-title">전문 촬영 및 디자인</h3>
+          <p class="feature-desc">제품 사진, 라이프스타일 이미지, 그래픽 디자인을 포함한 고품질 비주얼 콘텐츠 제작 서비스를 제공합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-pen-fancy"></i></div>
+          <h3 class="feature-title">매력적인 카피라이팅</h3>
+          <p class="feature-desc">브랜드 톤앤매너에 맞는 설득력 있는 텍스트와 효과적인 해시태그 전략으로 참여율과 검색 노출을 높입니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="feature-title">데이터 기반 최적화</h3>
+          <p class="feature-desc">인사이트 분석을 통한 지속적인 콘텐츠 성과 측정과 개선으로 팔로워 증가 및 참여율 향상을 실현합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h3 class="feature-title">콘텐츠 캘린더 관리</h3>
+          <p class="feature-desc">시즌, 이벤트, 프로모션을 고려한 체계적인 콘텐츠 일정 계획 및 관리로 일관된 브랜드 메시지를 전달합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3 class="feature-title">인플루언서 협업</h3>
+          <p class="feature-desc">브랜드에 적합한 인플루언서 발굴 및 협업 관리를 통해 콘텐츠의 도달범위와 신뢰도를 확장합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Process Section -->
+  <section class="process">
+    <div class="process-container">
+      <h2 class="section-title">콘텐츠 제작 프로세스</h2>
+      <p class="section-subtitle">체계적인 단계별 접근으로 최상의 결과물 제공</p>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">브랜드 분석</h3>
+          <p class="step-desc">브랜드 아이덴티티, 타겟 오디언스, 경쟁사 분석</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">전략 수립</h3>
+          <p class="step-desc">콘텐츠 컨셉, 톤앤매너, 주요 메시지 정의</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">콘텐츠 기획</h3>
+          <p class="step-desc">콘텐츠 유형별 세부 아이디어 및 일정 계획</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3 class="step-title">제작 및 디자인</h3>
+          <p class="step-desc">사진 촬영, 비디오 제작, 그래픽 디자인 작업</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3 class="step-title">최적화 및 게시</h3>
+          <p class="step-desc">최적의 시간대와 해시태그로 콘텐츠 포스팅</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3 class="step-title">분석 및 개선</h3>
+          <p class="step-desc">데이터 분석을 통한 지속적인 성과 최적화</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="faq-container">
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <div class="faq-item">
+        <div class="faq-question">콘텐츠는 월 몇 개 정도 제작되나요?</div>
+        <div class="faq-answer">
+          콘텐츠 제작 수량은 브랜드의 마케팅 목표와 필요에 따라 맞춤 설계됩니다. 일반적으로 월 12-30개의 콘텐츠를 제작하며, 피드 포스트, 스토리, 릴스 등 다양한 포맷을 조합하여 제공합니다. 정확한 수량과 콘텐츠 유형 구성은 초기 상담을 통해 브랜드의 특성과 목표에 맞게 결정됩니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">촬영은 어떻게 진행되나요?</div>
+        <div class="faq-answer">
+          콘텐츠 유형과 제품 특성에 따라 스튜디오 촬영과 현장 촬영을 모두 제공합니다. 제품 사진은 전문 스튜디오에서 진행하며, 라이프스타일 촬영은 브랜드 콘셉트에 맞는 로케이션에서 진행합니다. 당사의 전문 사진작가와 비디오그래퍼가 모든 촬영을 담당하며, 필요시 모델 캐스팅도 지원합니다. 촬영 전 콘셉트와 스타일에 대한 상세한 기획 회의를 통해 브랜드의 비전에 맞는 결과물을 보장합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">서비스에 계정 운영도 포함되나요?</div>
+        <div class="faq-answer">
+          네, 필요에 따라 콘텐츠 제작과 함께 전체 인스타그램 계정 운영 서비스도 제공하고 있습니다. 콘텐츠 포스팅, 해시태그 최적화, 커뮤니티 관리(댓글 및 DM 응대), 성과 분석 및 보고 등 계정 운영에 필요한 모든 서비스를 포함할 수 있습니다. 클라이언트의 필요에 따라 콘텐츠 제작만 진행하고 운영은 클라이언트가 직접 하는 방식도 가능합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">서비스 계약 기간은 어떻게 되나요?</div>
+        <div class="faq-answer">
+          인스타그램 콘텐츠 마케팅은 지속적인 브랜드 스토리텔링을 통해 장기적으로 효과를 볼 수 있는 전략입니다. 따라서 최소 3개월 이상의 계약을 권장하고 있으며, 대부분의 클라이언트는 6개월 또는 1년 단위로 계약을 진행합니다. 장기 계약의 경우 특별 혜택을 제공하며, 계약 기간 내 언제든지 전략 조정과 콘텐츠 유형 변경이 가능합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">서비스 요금은 어떻게 구성되나요?</div>
+        <div class="faq-answer">
+          서비스 요금은 콘텐츠 제작 수량, 유형(사진/영상), 촬영 복잡도, 계정 운영 여부 등에 따라 맞춤형으로 책정됩니다. 브랜드의 규모와 목표에 맞는 최적의 서비스 패키지를 제안해 드리며, 예산에 맞춰 서비스 범위를 조정할 수 있습니다. 정확한 견적은 초기 상담을 통해 브랜드의 구체적인 요구사항을 파악한 후 제공해 드립니다.
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>전문가와 상담하세요</h2>
+      <p>인스타그램 콘텐츠로 브랜드를 성장시킬 준비가 되셨나요? 무료 상담을 통해 맞춤형 전략을 받아보세요.</p>
+      
+      <div class="contact-form" id="contact-form">
+        <form action="https://formsubmit.co/stufftas@gmail.com" method="POST">
+          <!-- 이메일 제목 설정 -->
+          <input type="hidden" name="_subject" value="[인스타그램 콘텐츠 문의]">
+          <!-- 제출 후 이동 주소 -->
+          <input type="hidden" name="_next" value="https://artta0812.github.io/stufftas--homepage/thanks.html">
+          <!-- CAPTCHA 비활성화 -->
+          <input type="hidden" name="_captcha" value="false">
+          <!-- 자동 회신 -->
+          <input type="hidden" name="_autoresponse" value="문의 감사합니다! Stufftas에서 빠르게 연락드리겠습니다.">
+        
+          <div class="form-group">
+            <label for="name" class="form-label">이름</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+        
+          <div class="form-group">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+        
+          <div class="form-group">
+            <label for="phone" class="form-label">연락처</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+          </div>
+        
+          <div class="form-group">
+            <label for="company" class="form-label">회사명/브랜드명</label>
+            <input type="text" id="company" name="company" class="form-control" required>
+          </div>
+        
+          <div class="form-group">
+            <label for="instagram" class="form-label">인스타그램 계정 (있을 경우)</label>
+            <input type="text" id="instagram" name="instagram" class="form-control">
+          </div>
+        
+          <div class="form-group">
+            <label for="goal" class="form-label">인스타그램 마케팅 목표</label>
+            <select id="goal" name="goal" class="form-control" required>
+              <option value="">선택해주세요</option>
+              <option value="브랜드 인지도">브랜드 인지도 향상</option>
+              <option value="제품 홍보">제품/서비스 홍보</option>
+              <option value="팔로워 증가">팔로워 증가</option>
+              <option value="참여율 향상">참여율 향상</option>
+              <option value="판매 증대">판매/전환율 증대</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="message" class="form-label">추가 문의사항</label>
+            <textarea id="message" name="message" rows="5" class="form-control"></textarea>
+          </div>
+        
+          <button type="submit" class="submit-button">무료 상담 신청하기</button>
+        </form>
+        
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        
+        <p>스터프타스는 데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공하는 전문 대행사입니다.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stufftas_marketing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://blog.naver.com/stufftas" target="_blank" rel="noopener">
+            <span class="naver-icon">N</span>
+          </a>
+          <a href="https://www.linkedin.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>서비스</h3>
+        <a href="/services/naver-place.html">네이버 플레이스 광고</a>
+        <a href="/services/naver-search.html">네이버 검색광고</a>
+        <a href="/services/google-seo.html">구글 SEO</a>
+        <a href="/services/meta-ads.html">메타 광고</a>
+      </div>
+      
+      <div class="footer-links">
+        <h3>회사 정보</h3>
+        <a href="./about-page.html">회사 소개</a>
+        <a href="../index.html#testimonials">고객 후기</a>
+        <a href="https://blog.naver.com/stufftas" target="_blank">블로그</a>
+        <a href="../index.html#contact">문의하기</a>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      © 2025 Stufftas 스터프타스. All rights reserved.
+    </div>
+  </footer>
+  
+  <script>
+    // FAQ 토글 기능
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        question.classList.toggle('active');
+        
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+        } else {
+          answer.style.display = 'block';
+        }
+      });
+    });
+    
+    // 스크롤 이벤트 처리
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // 부드러운 스크롤 이동
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="회사소개 - 스터프타스 마케팅">
+  <meta property="og:description" content="디지털 마케팅 전문 기업 스터프타스의 비전과 미션, 핵심 가치를 소개합니다">
+  <meta property="og:image" content="../images/logo.png">
+  <title>회사소개 - 스터프타스 마케팅</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 0.8rem 5%;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    header .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    header .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    header .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4b0096;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #4b0096;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4b0096;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .about-hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(160deg, #1e0038, #4b0096);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/placeholder/1200/600') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .about-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .about-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    /* 회사 소개 섹션 스타일 */
+    .section {
+      padding: 5rem 5%;
+    }
+    
+    .section:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .section:nth-child(odd) {
+      background-color: #fff;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e0038;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #4b0096;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    /* 회사 소개 콘텐츠 스타일 */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4rem;
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .about-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 회사 연혁 스타일 */
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #4b0096;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12px;
+      background-color: #fff;
+      border: 4px solid #4b0096;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .timeline-item.left {
+      left: 0;
+    }
+    
+    .timeline-item.right {
+      left: 50%;
+    }
+    
+    .timeline-item.right::after {
+      left: -12px;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background-color: #fff;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .timeline-year {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #4b0096;
+      margin-bottom: 10px;
+    }
+    
+    /* 팀 소개 스타일 */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .team-member {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .member-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+    }
+    
+    .member-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-position {
+      font-size: 1rem;
+      color: #4b0096;
+      margin-bottom: 1rem;
+    }
+    
+    .member-bio {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .member-social {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .member-social a {
+      color: #4b0096;
+      transition: color 0.3s;
+    }
+    
+    .member-social a:hover {
+      color: #1e0038;
+    }
+    
+    /* 회사 가치 스타일 */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .value-item {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .value-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      color: #4b0096;
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .value-desc {
+      color: #666;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 5%;
+      background: linear-gradient(160deg, #4b0096, #1e0038);
+      color: #fff;
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: #fff;
+      color: #4b0096;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background: #f0f0f0;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 5%;
+      background: #1e0038;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-links h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.7rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+    }
+    
+    .footer-contact {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-contact h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #fff;
+    }
+    
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item.right {
+        left: 0%;
+      }
+      
+      .timeline-item.left::after,
+      .timeline-item.right::after {
+        left: 18px;
+      }
+    }
+    
+    /* 네이버 아이콘 스타일 */
+    .naver-icon {
+      display: inline-block;
+      background-color: #03c75a;
+      color: white;
+      font-weight: bold;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.png" alt="Stufftas Logo">
+        <span class="logo-text">스터프타스</span>
+      </a>
+    </div>
+    <nav>
+      <a href="../index.html">홈</a>
+      <a href="../index.html#services">서비스</a>
+      <a href="../index.html#testimonials">고객 후기</a>
+      <a href="../index.html#contact">문의하기</a>
+    </nav>
+  </header>
+  
+  <!-- 회사 소개 Hero 섹션 -->
+  <section class="about-hero" style="background: linear-gradient(160deg, #1e0038, #4b0096), url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; background-blend-mode: multiply;">
+
+    <div class="about-hero-content">
+      <h1>스터프타스에 오신 것을 환영합니다</h1>
+      <p>성과 중심 디지털 마케팅으로 신뢰받는 파트너가 되어드립니다</p>
+    </div>
+  </section>
+  
+  <!-- 회사 소개 섹션 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">스터프타스 소개</h2>
+      <p class="section-subtitle">신뢰 기반의 퍼포먼스 마케팅 전문 기업</p>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p>스터프타스는 실질적인 전환 성과를 만들어내는 디지털 마케팅 대행사입니다. 단순 노출이 아닌, 고객의 비즈니스 목표 달성에 기여하는 '성과 중심' 마케팅을 실행합니다.</p>
+          <br>
+          <p>우리는 철저한 데이터 분석을 바탕으로, 구글 SEO, 유튜브 상위노출, SNS 마케팅 등 각 분야 전문가들과 함께 맞춤형 전략을 수립합니다. 고객사 채널의 신뢰도를 보호하고, 장기적으로 브랜드 가치까지 높이는 것을 최우선으로 합니다.</p>
+          <br>
+          <p>다양한 산업군의 고객과 함께한 경험을 토대로, 마케팅의 본질인 '성장'을 입증해왔습니다. 지금도 우리는 고객의 성공을 위해 진심을 담은 마케팅을 실행 중입니다.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&h=400&q=80" alt="스터프타스 사무실">
+
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 비전 & 미션 섹션 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">비전 & 미션</h2>
+      <p class="section-subtitle">신뢰받는 디지털 파트너로서의 약속</p>
+      
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&h=400&q=80" alt="비전 및 미션">
+
+        </div>
+        <div class="about-text">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #4b0096;">비전</h3>
+          <p>"성과로 말하는 마케팅으로 고객에게 신뢰를 주는 최고의 마케팅 파트너가 되겠습니다."</p>
+          <br>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #4b0096;">미션</h3>
+          <p>"데이터와 실행력, 책임감을 기반으로 고객의 지속가능한 성장을 실현합니다."</p>
+          <br>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #4b0096;">가치</h3>
+          <p>"신뢰, 투명성, 실질 성과 – 이 세 가지 원칙을 기반으로 마케팅을 수행합니다."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <!-- 회사 가치 섹션 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">핵심 가치</h2>
+      <p class="section-subtitle">스터프타스가 추구하는 기업 문화와 가치</p>
+      
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="value-title">혁신</h3>
+          <p class="value-desc">끊임없는 학습과 실험을 통해 디지털 마케팅의 새로운 기준을 만들어갑니다.</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="value-title">신뢰</h3>
+          <p class="value-desc">정직한 소통과 약속 이행을 통해 고객과 장기적인 신뢰 관계를 구축합니다.</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="value-title">성과 중심</h3>
+          <p class="value-desc">측정 가능한 결과와 데이터에 기반한 의사 결정으로 실질적인 성과를 창출합니다.</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="value-title">협력</h3>
+          <p class="value-desc">팀워크와 열린 소통을 통해 최상의 결과를 만들어냅니다.</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="value-title">도전 정신</h3>
+          <p class="value-desc">현상에 안주하지 않고 끊임없이 더 나은 방법을 모색합니다.</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="value-title">고객 중심</h3>
+          <p class="value-desc">고객의 니즈와 목표를 최우선으로 생각하며 최상의 서비스를 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 파트너 회사 섹션 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">파트너십</h2>
+      <p class="section-subtitle">함께 성장하는 신뢰 기반 파트너사</p>
+      
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; margin-top: 3rem;">
+        <!-- Nexora 로고 - 현대적이고 세련된 디자인 -->
+        <div style="max-width: 180px; height: 80px; background: linear-gradient(135deg, #ffffff, #f8f8ff); border-radius: 8px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(75, 0, 150, 0.15); transition: all 0.3s;">
+          <svg width="160" height="60" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="nexoraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6a11cb"/>
+                <stop offset="100%" stop-color="#2575fc"/>
+              </linearGradient>
+              <filter id="nexoraShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#6a11cb" flood-opacity="0.3"/>
+              </filter>
+            </defs>
+            <g filter="url(#nexoraShadow)">
+              <path d="M35 20 L45 40 L55 20 M65 20 L55 40 M75 20 L75 40 M85 20 L95 40 M105 20 L105 40 L115 40 M120 20 L125 30 L130 20" fill="none" stroke="url(#nexoraGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+            </g>
+            <text x="80" y="53" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#555">디지털 마케팅 솔루션</text>
+          </svg>
+        </div>
+        
+        <!-- Brightly 로고 - 크리에이티브하고 밝은 컨셉 -->
+        <div style="max-width: 180px; height: 80px; background: linear-gradient(135deg, #ffffff, #f0faff); border-radius: 8px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0, 160, 210, 0.15); transition: all 0.3s;">
+          <svg width="160" height="60" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="brightlyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00c6ff"/>
+                <stop offset="100%" stop-color="#0072ff"/>
+              </linearGradient>
+              <filter id="brightlyShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00c6ff" flood-opacity="0.3"/>
+              </filter>
+            </defs>
+            <g filter="url(#brightlyShadow)">
+              <circle cx="50" cy="30" r="12" fill="url(#brightlyGrad)"/>
+              <path d="M50 18 L50 42" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+              <path d="M38 30 L62 30" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+              <path d="M70 20 Q70 20, 80 20, 90 20 Q100 20, 100 30, 100 40 Q100 40, 90 40, 80 40 Q70 40, 70 30" fill="none" stroke="url(#brightlyGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M105 20 L105 40 M112 20 L112 40 M119 20 L119 40" fill="none" stroke="url(#brightlyGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+            </g>
+            <text x="80" y="53" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#555">브랜드 마케팅</text>
+          </svg>
+        </div>
+        
+        <!-- Omnix 로고 - 테크 기반의 현대적 디자인 -->
+        <div style="max-width: 180px; height: 80px; background: linear-gradient(135deg, #ffffff, #fff8f0); border-radius: 8px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(230, 126, 34, 0.15); transition: all 0.3s;">
+          <svg width="160" height="60" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="omnixGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff7e5f"/>
+                <stop offset="100%" stop-color="#feb47b"/>
+              </linearGradient>
+              <filter id="omnixShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#ff7e5f" flood-opacity="0.3"/>
+              </filter>
+            </defs>
+            <g filter="url(#omnixShadow)">
+              <path d="M40 20 A20 20 0 0 1 40 40 A20 20 0 0 1 40 20" fill="none" stroke="url(#omnixGrad)" stroke-width="3"/>
+              <path d="M50 20 L60 40 M70 20 L60 40 M70 20 L80 40 M90 20 L80 40 M90 20 L100 40 M110 20 L100 40 M110 20 L120 40" fill="none" stroke="url(#omnixGrad)" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <text x="80" y="53" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#555">데이터 기반 마케팅</text>
+          </svg>
+        </div>
+        
+        <!-- Layerbit 로고 - 세련된 그래픽 요소 -->
+        <div style="max-width: 180px; height: 80px; background: linear-gradient(135deg, #ffffff, #f0fff4); border-radius: 8px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.15); transition: all 0.3s;">
+          <svg width="160" height="60" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="layerbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0bab64"/>
+                <stop offset="100%" stop-color="#3bb78f"/>
+              </linearGradient>
+              <filter id="layerbitShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0bab64" flood-opacity="0.3"/>
+              </filter>
+            </defs>
+            <g filter="url(#layerbitShadow)">
+              <path d="M40 35 L60 20 L80 30 L100 15 L120 25" fill="none" stroke="url(#layerbitGrad)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M40 28 L60 13 L80 23 L100 8 L120 18" fill="none" stroke="url(#layerbitGrad)" stroke-width="3" stroke-linecap="round" stroke-opacity="0.7"/>
+              <path d="M40 42 L60 27 L80 37 L100 22 L120 32" fill="none" stroke="url(#layerbitGrad)" stroke-width="3" stroke-linecap="round" stroke-opacity="0.4"/>
+            </g>
+            <text x="80" y="53" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#555">디지털 성과 마케팅</text>
+          </svg>
+        </div>
+        
+        <!-- Qurate 로고 - 프리미엄 럭셔리한 느낌 -->
+        <div style="max-width: 180px; height: 80px; background: linear-gradient(135deg, #ffffff, #f8f0ff); border-radius: 8px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(155, 89, 182, 0.15); transition: all 0.3s;">
+          <svg width="160" height="60" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="qurateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#8e2de2"/>
+                <stop offset="100%" stop-color="#4a00e0"/>
+              </linearGradient>
+              <filter id="qurateShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#8e2de2" flood-opacity="0.3"/>
+              </filter>
+            </defs>
+            <g filter="url(#qurateShadow)">
+              <circle cx="65" cy="30" r="15" fill="url(#qurateGrad)"/>
+              <text x="65" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">Q</text>
+              <path d="M85 20 L85 40 M95 20 L105 20 Q115 20, 115 30 Q115 40, 105 40 L95 40" fill="none" stroke="url(#qurateGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M80 30 L89 30" stroke="url(#qurateGrad)" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <text x="80" y="53" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#555">콘텐츠 크리에이티브</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 오시는 길 섹션 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">오시는 길</h2>
+      <p class="section-subtitle">스터프타스를 방문해 주세요</p>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 3rem; margin-top: 2rem;">
+        <div style="flex: 1; min-width: 300px;">
+          <div style="background: #f9f9f9; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">본사 위치</h3>
+            <p><i class="fas fa-map-marker-alt" style="color: #4b0096; margin-right: 0.5rem;"></i> 인천광역시 남동구 서창남순환로 215번길 36, 4층 402호(서창동, 리치프라자)</p>
+            <p><i class="fas fa-phone" style="color: #4b0096; margin-right: 0.5rem;"></i> 010-9009-3592</p>
+            <p><i class="fas fa-envelope" style="color: #4b0096; margin-right: 0.5rem;"></i> stufftas@gmail.com</p>
+          
+          </div>
+        </div>
+        
+        <div style="flex: 1; min-width: 300px;">
+        
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA 섹션 -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>함께 성장할 준비가 되셨나요?</h2>
+      <p>스터프타스와 함께 디지털 마케팅의 새로운 가능성을 경험해보세요.</p>
+      <a href="../index.html#contact" class="cta-button">문의하기</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        
+        <p>스터프타스는 데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공하는 전문 대행사입니다.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stufftas_marketing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://blog.naver.com/stufftas" target="_blank" rel="noopener">
+            <span class="naver-icon">N</span>
+          </a>
+          <a href="https://www.linkedin.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>서비스</h3>
+        <a href="/services/naver-place.html">네이버 플레이스 광고</a>
+        <a href="/services/naver-search.html">네이버 검색광고</a>
+        <a href="/services/google-seo.html">구글 SEO</a>
+        <a href="/services/meta-ads.html">메타 광고</a>
+      </div>
+      
+      <div class="footer-links">
+        <h3>회사 정보</h3>
+        <a href="#">회사 소개</a>
+        <a href="#">팀 소개</a>
+        <a href="#">블로그</a>
+        <a href="#">채용 정보</a>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      © 2025 Stufftas 스터프타스. All rights reserved.
+    </div>
+  </footer>
+  
+  
+  <script>
+    // 스크롤 시 헤더 스타일 변경
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
