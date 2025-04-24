@@ -13,32 +13,40 @@
 </head>
 <body>
   <!-- 네비게이션 -->
-  <header>
-    <div class="logo-container">
-      <a href="index.html" style="display:flex; align-items:center; text-decoration:none">
-        <img src="images/logo.png" alt="스터프타스 로고" style="height:40px; margin-right:10px;">
-        <span class="logo-text">스터프타스</span>
-      </a>
-    </div>
-    <nav>
-      <a href="index.html">홈</a>
-      <a href="pages/company-intro-page.html">회사 소개</a>
-      <div class="dropdown">
-        <a href="#services" class="dropdown-toggle">서비스</a>
-        <div class="dropdown-menu">
-          <a href="pages/naver-place-page.html">네이버 플레이스 광고</a>
-          <a href="pages/naver-search-page.html">네이버 검색광고</a>
-          <a href="pages/googlemaps-seo-page.html">구글맵 SEO</a>
-          <a href="pages/meta-ads.html">메타 광고</a>
-          <a href="pages/instagram-page.html">인스타그램 콘텐츠 제작</a>
-          <a href="pages/youtube-page.html">유튜브 상위노출</a>
-          <a href="pages/review-page.html">리뷰 마케팅</a>
-        </div>
+<header>
+  <div class="logo-container">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="스터프타스 로고">
+      <span class="logo-text">스터프타스</span>
+    </a>
+  </div>
+  
+  <!-- 모바일 메뉴 토글 버튼 추가 -->
+  <button class="mobile-menu-toggle" aria-label="메뉴 열기">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="pages/company-intro-page.html">회사 소개</a>
+    <div class="dropdown">
+      <a href="#services" class="dropdown-toggle">서비스</a>
+      <div class="dropdown-menu">
+        <a href="pages/naver-place-page.html">네이버 플레이스 광고</a>
+        <a href="pages/naver-search-page.html">네이버 검색광고</a>
+        <a href="pages/googlemaps-seo-page.html">구글맵 SEO</a>
+        <a href="pages/meta-ads.html">메타 광고</a>
+        <a href="pages/instagram-page.html">인스타그램 콘텐츠 제작</a>
+        <a href="pages/youtube-page.html">유튜브 상위노출</a>
+        <a href="pages/review-page.html">리뷰 마케팅</a>
       </div>
-      <a href="pages/testimonials-page-updated.html">고객 후기</a>
-      <a href="#contact">문의하기</a>
-    </nav>
-  </header>
+    </div>
+    <a href="pages/testimonials-page-updated.html">고객 후기</a>
+    <a href="#contact">문의하기</a>
+  </nav>
+</header>
   <section class="hero">
     <div class="hero-content fade-in-up">
       <h1>브랜드 성장을 이끌어내는<br>마케팅 전문가</h1>
