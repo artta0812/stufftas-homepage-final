@@ -68,16 +68,19 @@ header .logo-text {
   
   nav {
     display: flex;
+    align-items: center; /* 세로 중앙 정렬 추가 */
     gap: 1.5rem;
   }
   
-  nav a {
+  nav a, .dropdown-toggle {
     text-decoration: none;
     color: #333;
     font-weight: 500;
     font-size: 1rem;
     position: relative;
     transition: color 0.3s;
+    line-height: 1; /* 라인 높이 통일 */
+    padding: 0.5rem 0; /* 상하 패딩 추가 */
   }
   
   nav a:hover {
@@ -402,8 +405,26 @@ header .logo-text {
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 1.1rem; }
     .section-title { font-size: 1.8rem; }
-    header { padding: 1rem 5%; }
+    header { 
+      padding: 1rem 5%;
+      flex-direction: column; /* 헤더를 세로 방향으로 변경 */
+    }
     .cta-button { padding: 0.8rem 1.5rem; font-size: 1rem; }
+    
+    /* 로고와 네비게이션 조정 */
+    header .logo-container {
+      margin-bottom: 0.8rem;
+    }
+    
+    nav {
+      flex-wrap: wrap; /* 필요시 줄바꿈 허용 */
+      justify-content: center; /* 중앙 정렬 */
+    }
+    
+    nav a, .dropdown-toggle {
+      text-align: center; /* 텍스트 중앙 정렬 */
+      padding: 0.5rem 0.8rem; /* 좌우 패딩 추가 */
+    }
   }
   @media (max-width: 480px) {
     .hero { padding-top: 5rem; }
