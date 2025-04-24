@@ -1102,43 +1102,73 @@
   </footer>
   
   <script>
-    // FAQ 토글 기능
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        question.classList.toggle('active');
-        
-        if (answer.style.display === 'block') {
-          answer.style.display = 'none';
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ 토글 기능
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          question.classList.toggle('active');
+          
+          if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+          } else {
+            answer.style.display = 'block';
+          }
+        });
+      });
+      
+      // 스크롤 이벤트 처리
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
         } else {
-          answer.style.display = 'block';
+          header.classList.remove('scrolled');
         }
       });
-    });
+      
+      // 부드러운 스크롤 이동
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // 폼 관련 코드
+      const form = document.getElementById('contact-form-element');
+      const formStatus = document.getElementById('form-status');
     
-    // 스크롤 이벤트 처리
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      if (form) {
+        // 기본 폼 제출 방식을 사용하고, 사용자 피드백만 제공
+        form.addEventListener('submit', function() {
+          // 제출 버튼 비활성화 및 텍스트 변경
+          const submitButton = form.querySelector('.submit-button');
+          submitButton.disabled = true;
+          submitButton.textContent = '제출 중...';
+          
+          // 상태 표시 - 사용자에게 제출 중임을 알림
+          if (formStatus) {
+            formStatus.style.display = 'block';
+            formStatus.className = 'form-status success';
+            formStatus.textContent = '제출 중입니다. 잠시만 기다려주세요...';
+          }
+          
+          // FormSubmit은 기본 HTML 폼 제출 방식으로 작동하므로
+          // 기본 제출 동작을 방해하지 않음
+          return true;
+        });
       }
     });
-    
-    // 부드러운 스크롤 이동
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
+  </script>
+  </body>
+</html>
