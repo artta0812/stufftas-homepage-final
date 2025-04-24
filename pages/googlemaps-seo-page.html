@@ -1298,6 +1298,52 @@
       return true;
     });
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    // 폼 관련 코드
+    const form = document.getElementById('contact-form-element');
+    const formStatus = document.getElementById('form-status');
+  
+    if (form) {
+      // 기본 폼 제출 방식을 사용하고, 사용자 피드백만 제공
+      form.addEventListener('submit', function() {
+        // 제출 버튼 비활성화 및 텍스트 변경
+        const submitButton = form.querySelector('.submit-button');
+        submitButton.disabled = true;
+        submitButton.textContent = '제출 중...';
+        
+        // 상태 표시 - 사용자에게 제출 중임을 알림
+        if (formStatus) {
+          formStatus.style.display = 'block';
+          formStatus.className = 'form-status success';
+          formStatus.textContent = '제출 중입니다. 잠시만 기다려주세요...';
+        }
+        
+        // FormSubmit은 기본 HTML 폼 제출 방식으로 작동하므로
+        // 기본 제출 동작을 방해하지 않음
+        return true;
+      });
+    }
+    
+    // FAQ 기능 추가
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        // active 클래스 토글
+        this.classList.toggle('active');
+        
+        // 다음 요소(답변) 찾기
+        const answer = this.nextElementSibling;
+        
+        // 답변 표시/숨김 토글
+        if (answer.classList.contains('show')) {
+          answer.classList.remove('show');
+        } else {
+          answer.classList.add('show');
+        }
+      });
+    });
+  });
 </script>
 </body>
 </html>
