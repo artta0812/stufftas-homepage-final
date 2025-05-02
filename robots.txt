@@ -1,0 +1,4 @@
+User-agent: *
+Allow:/
+Sitemap: https://stufftas.com/sitemap.xml
+
