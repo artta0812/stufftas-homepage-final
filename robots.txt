@@ -1,19 +1,2 @@
-# 네이버 검색 로봇 허용, 민감 경로 차단
-User-agent: Yeti
-Disallow: /admin/
-Disallow: /test.html
-Allow: /
-
-# 구글 검색 로봇 허용, 민감 경로 차단
-User-agent: Googlebot
-Disallow: /admin/
-Disallow: /test.html
-Allow: /
-
-# 모든 기타 봇에 대해 동일한 규칙 적용
 User-agent: *
-Disallow: /admin/
-Disallow: /test.html
-Allow: /
-
-Sitemap: https://stufftas.com/sitemap.xml
+Allow:/
