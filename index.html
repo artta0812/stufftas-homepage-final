@@ -1,67 +1,102 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="데이터 기반 성과 중심 디지털 마케팅 대행사. 구글맵 SEO, 유튜브 상위노출, 메타광고, 네이버 마케팅 등 전문 서비스 제공." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="스터프타스 마케팅 대행사" />
-  <meta property="og:description" content="브랜드 성장을 이끌어내는 마케팅 전문가" />
-  <meta property="og:image" content="https://stufftas.com/images/logo.png" />
-  <meta property="og:url" content="https://stufftas.com/" />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://stufftas.com/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="데이터 기반 성과 중심 디지털 마케팅 대행사. 구글맵 SEO, 유튜브 상위노출, 메타광고, 네이버 마케팅 등 전문 서비스 제공.">
+  <meta property="og:title" content="스터프타스 마케팅 대행사">
+  <meta property="og:description" content="브랜드 성장을 이끌어내는 마케팅 전문가">
+  <meta property="og:image" content="https://stufftas.com/images/logo.png">
+  <meta property="og:url" content="https://stufftas.com/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://stufftas.com/">
   <title>스터프타스 마케팅</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "스터프타스 마케팅",
+    "url": "https://stufftas.com",
+    "description": "데이터 기반 성과 중심 디지털 마케팅 대행사. 구글맵 SEO, 유튜브 상위노출, 메타광고, 네이버 마케팅 등 전문 서비스 제공.",
+    "inLanguage": "ko",
+    "publisher": {
+      "@type": "Organization",
+      "name": "스터프타스",
+      "url": "https://stufftas.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://stufftas.com/images/logo.png"
+      },
+      "sameAs": [
+        "https://www.facebook.com/stufftas",
+        "https://www.instagram.com/stufftas_marketing",
+        "https://blog.naver.com/stufftas",
+        "https://www.linkedin.com/stufftas"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+82-10-9009-3592",
+        "contactType": "Customer Service",
+        "areaServed": "KR",
+        "availableLanguage": "Korean"
+      }
+    }
+  }
+  </script>
+
+  <!-- 폰트 및 스타일 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-  <!-- ===== Header ===== -->
-  <header>
-    <div class="logo-container">
-      <a href="index.html" class="logo-link">
-        <img src="images/logo.png" alt="스터프타스 로고" />
-        <span class="logo-text">스터프타스</span>
-      </a>
-    </div>
-    <button class="mobile-menu-toggle" aria-label="메뉴 열기">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-    <nav>
-      <a href="index.html">홈</a>
-      <a href="pages/company-intro-page.html">회사소개</a>
-      <div class="dropdown">
-        <a href="#services" class="dropdown-toggle">서비스</a>
-        <div class="dropdown-menu">
-          <a href="pages/naver-place-page.html">네이버 플레이스 광고</a>
-          <a href="pages/naver-search-page.html">네이버 검색광고</a>
-          <a href="pages/googlemaps-seo-page.html">구글맵 SEO</a>
-          <a href="pages/meta-ads.html">메타 광고</a>
-          <a href="pages/instagram-page.html">인스타그램 콘텐츠 제작</a>
-          <a href="pages/youtube-page.html">유튜브 상위노출</a>
-          <a href="pages/review-page.html">리뷰 마케팅</a>
-        </div>
+  <!-- 네비게이션 -->
+<header>
+  <div class="logo-container">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="스터프타스 로고">
+      <span class="logo-text">스터프타스</span>
+    </a>
+  </div>
+  
+  <!-- 모바일 메뉴 토글 버튼 추가 -->
+  <button class="mobile-menu-toggle" aria-label="메뉴 열기">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="pages/company-intro-page.html">회사 소개</a>
+    <div class="dropdown">
+      <a href="#services" class="dropdown-toggle">서비스</a>
+      <div class="dropdown-menu">
+        <a href="pages/naver-place-page.html">네이버 플레이스 광고</a>
+        <a href="pages/naver-search-page.html">네이버 검색광고</a>
+        <a href="pages/googlemaps-seo-page.html">구글맵 SEO</a>
+        <a href="pages/meta-ads.html">메타 광고</a>
+        <a href="pages/instagram-page.html">인스타그램 콘텐츠 제작</a>
+        <a href="pages/youtube-page.html">유튜브 상위노출</a>
+        <a href="pages/review-page.html">리뷰 마케팅</a>
       </div>
-      <a href="pages/testimonials-page-updated.html">고객 후기</a>
-      <a href="#contact">문의하기</a>
-    </nav>
-  </header>
-
-  <!-- ===== Hero ===== -->
+    </div>
+    <a href="pages/testimonials-page-updated.html">고객 후기</a>
+    <a href="#contact">문의하기</a>
+  </nav>
+</header>
   <section class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade-in-up">
       <h1>브랜드 성장을 이끌어내는<br>마케팅 전문가</h1>
       <p>데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공합니다</p>
       <a href="#services" class="cta-button">서비스 알아보기</a>
     </div>
   </section>
-
-  <!-- ===== Stats ===== -->
+  
   <section class="stats">
     <div class="stat-item">
       <div class="stat-number">150+</div>
@@ -80,29 +115,68 @@
       <div class="stat-label">업계 경험</div>
     </div>
   </section>
-
-  <!-- ===== Services ===== -->
+  
   <section class="services" id="services">
     <h2 class="section-title">전문 마케팅 서비스</h2>
     <div class="services-container">
-      <!-- 각 서비스 카드 반복 -->
-      <div class="service">
+      <div class="service" onclick="location.href='pages/naver-place-page.html'">
         <div class="service-icon"><i class="fas fa-map-marker-alt"></i></div>
         <h3>네이버 플레이스 광고</h3>
         <p>지역 기반 비즈니스를 위한 최적화된 네이버 플레이스 마케팅 전략을 제공합니다.</p>
         <a href="pages/naver-place-page.html" class="service-link">자세히 보기</a>
       </div>
-      <!-- ... 나머지 서비스 동일 구조로 ... -->
+      
+      <div class="service" onclick="location.href='pages/naver-search-page.html'">
+        <div class="service-icon"><i class="fas fa-search"></i></div>
+        <h3>네이버 검색광고</h3>
+        <p>효과적인 키워드 전략으로 네이버 검색결과 상위 노출을 실현합니다.</p>
+        <a href="pages/naver-search-page.html" class="service-link">자세히 보기</a>
+      </div>
+      
+      <div class="service" onclick="location.href='pages/googlemaps-seo-page.html'">
+        <div class="service-icon"><i class="fab fa-google"></i></div>
+        <h3>구글맵 SEO</h3>
+        <p>최신 알고리즘에 맞춘 최적화로 구글 지도 노출 순위를 향상시킵니다.</p>
+        <a href="pages/googlemaps-seo-page.html" class="service-link">자세히 보기</a>
+      </div>
+      
+      <div class="service" onclick="location.href='pages/meta-ads.html'">
+        <div class="service-icon"><i class="fab fa-facebook"></i></div>
+        <h3>메타 광고</h3>
+        <p>페이스북과 인스타그램을 활용한 타겟 맞춤형 광고 캠페인을 운영합니다.</p>
+        <a href="pages/meta-ads.html" class="service-link">자세히 보기</a>
+      </div>
+      
+      <div class="service" onclick="location.href='pages/instagram-page.html'">
+        <div class="service-icon"><i class="fab fa-instagram"></i></div>
+        <h3>인스타그램 콘텐츠 제작</h3>
+        <p>브랜드 아이덴티티에 맞는 매력적인 인스타그램 콘텐츠를 제작합니다.</p>
+        <a href="pages/instagram-page.html" class="service-link">자세히 보기</a>
+      </div>
+      
+      <div class="service" onclick="location.href='pages/youtube-page.html'">
+        <div class="service-icon"><i class="fab fa-youtube"></i></div>
+        <h3>유튜브 상위노출</h3>
+        <p>유튜브 알고리즘을 활용한 효과적인 영상 노출 전략을 제공합니다.</p>
+        <a href="pages/youtube-page.html" class="service-link">자세히 보기</a>
+      </div>
+      
+      <div class="service" onclick="location.href='pages/review-page.html'">
+        <div class="service-icon"><i class="fas fa-comments"></i></div>
+        <h3>리뷰 마케팅</h3>
+        <p>긍정적인 고객 경험을 활용한 신뢰도 향상 전략을 구현합니다.</p>
+        <a href="pages/review-page.html" class="service-link">자세히 보기</a>
+      </div>
     </div>
   </section>
-
-  <!-- ===== Testimonials ===== -->
+  
   <section class="testimonials" id="testimonials">
     <h2 class="section-title">고객 후기</h2>
     <div class="testimonials-container">
-      <!-- 후기 카드 반복 -->
       <div class="testimonial">
-        <div class="testimonial-text">"스터프타스와 협업하면서 고객 유입이 50% 증가했습니다."</div>
+        <div class="testimonial-text">
+          "스터프타스와 협업하면서 저희 카페의 온라인 인지도가 크게 향상되었습니다. 네이버 플레이스 최적화와 리뷰 관리를 통해 방문객이 50% 이상 증가했습니다."
+        </div>
         <div class="testimonial-author">
           <img src="images/shifted3_left.png" alt="고객 김지연" />
           <div class="author-info">
@@ -111,92 +185,186 @@
           </div>
         </div>
       </div>
-      <!-- ... -->
+      
+      <div class="testimonial">
+        <div class="testimonial-text">
+          "구글 SEO와 유튜브 마케팅을 통해 저희 브랜드의 해외 노출이 크게 증가했습니다. 데이터 기반 접근 방식과 투명한 보고서가 특히 마음에 들었습니다."
+        </div>
+        <div class="testimonial-author">
+          <img src="images/recentered2.png" alt="고객 김지연" />
+          <div class="author-info">
+            <h4>박성민</h4>
+            <p>패션 브랜드 CEO, 부산</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-text">
+          "인스타그램 콘텐츠 제작 서비스를 이용했는데, 우리 브랜드 톤앤매너를 정확히 이해하고 팔로워 참여율을 높이는 콘텐츠를 만들어주셨습니다."
+        </div>
+        <div class="testimonial-author">
+          <img src="images/shifted1_more2.png" alt="고객 김지연" />
+          <div class="author-info">
+            <h4>이현주</h4>
+            <p>뷰티 브랜드 마케팅 담당자, 대전</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <!-- ===== Contact ===== -->
+  
   <section id="contact">
     <h2 class="section-title">문의하기</h2>
     <div class="contact-container">
       <div class="contact-info">
-        <!-- 이메일, 전화, 주소 등 -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-text">
+            <h4>이메일</h4>
+            <p>stufftas@gmail.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-text">
+            <h4>전화</h4>
+            <p>010-9009-3592</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-text">
+            <h4>주소</h4>
+            <p>인천광역시 남동구 서창남순환로215번길36,4층 402호(서창동,리치프라자)</p>
+          </div>
+        </div>
       </div>
+      
       <div class="contact-form">
         <form action="https://formsubmit.co/stufftas@gmail.com" method="POST">
           <div class="form-group">
-            <label for="name">이름</label>
-            <input type="text" id="name" name="name" class="form-control" required />
+            <label for="name" class="form-label">이름</label>
+            <input type="text" id="name" name="name" class="form-control" required>
           </div>
+          
           <div class="form-group">
-            <label for="email">이메일</label>
-            <input type="email" id="email" name="email" class="form-control" required />
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" id="email" name="email" class="form-control" required>
           </div>
+          
           <div class="form-group">
-            <label for="message">문의 내용</label>
-            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+            <label for="message" class="form-label">문의 내용</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+
           </div>
-          <input type="hidden" name="_next" value="https://stufftas.com/thanks.html" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style="display:none" />
-          <input type="hidden" name="_autoresponse" value="스터프타스에 문의해주셔서 감사합니다. 빠르게 회신드리겠습니다!" />
+        
+          <!-- 전송 후 이동할 페이지 (감사합니다 페이지) -->
+          <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
+        
+          <!-- 봇 방지용 -->
+          <input type="text" name="_honey" style="display:none">
+        
+          <!-- CAPTCHA 끄기 -->
+          <input type="hidden" name="_captcha" value="false">
+        
           <button type="submit" class="submit-button">문의 보내기</button>
+          <input type="hidden" name="_autoresponse" value="스터프타스에 문의해주셔서 감사합니다. 빠르게 회신드리겠습니다!">
+
         </form>
+        
       </div>
     </div>
   </section>
-
-  <!-- ===== Footer ===== -->
+  
   <footer>
     <div class="footer-content">
-      <!-- 로고 + 설명 + 소셜 -->
       <div class="footer-logo">
+       
         <p>스터프타스는 데이터 기반의 성과 중심 디지털 마케팅 솔루션을 제공하는 전문 대행사입니다.</p>
         <div class="social-icons">
-          <a href="https://www.facebook.com/stufftas" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/stufftas_marketing" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://blog.naver.com/stufftas" target="_blank"><span class="naver-icon">N</span></a>
-          <a href="https://www.linkedin.com/stufftas" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stufftas_marketing" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://blog.naver.com/stufftas" target="_blank" rel="noopener">
+            <span class="naver-icon">N</span>
+          </a>
+          <a href="https://www.linkedin.com/stufftas" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
-
-      <!-- 서비스 링크 -->
-      <div class="footer-links">
-        <h3>서비스</h3>
-        <a href="pages/naver-place-page.html">네이버 플레이스 광고</a>
-        <a href="pages/naver-search-page.html">네이버 검색광고</a>
-        <a href="pages/googlemaps-seo-page.html">구글맵 SEO</a>
-        <a href="pages/meta-ads.html">메타 광고</a>
-        <a href="pages/instagram-page.html">인스타그램 콘텐츠 제작</a>
-        <a href="pages/youtube-page.html">유튜브 상위노출</a>
-        <a href="pages/review-page.html">리뷰 마케팅</a>
-      </div>
-
-      <!-- 회사 정보 -->
-      <div class="footer-links">
-        <h3>회사 정보</h3>
-        <a href="pages/company-intro-page.html">회사 소개</a>
-        <a href="pages/team-page.html">팀 소개</a>
-        <a href="https://blog.naver.com/stufftas" target="_blank">블로그</a>
-        <a href="pages/careers.html">채용 정보</a>
-      </div>
-    </div>
-
+      
+<footer>
+  <div class="footer-links">
+    <h3>서비스</h3>
+    <a href="pages/naver-place-page.html">네이버 플레이스 광고</a>
+    <a href="pages/naver-search-page.html">네이버 검색광고</a>
+    <a href="pages/googlemaps-seo-page.html">구글맵 SEO</a>
+    <a href="pages/meta-ads.html">메타 광고</a>
+    <a href="pages/instagram-page.html">인스타그램 콘텐츠 제작</a>
+    <a href="pages/youtube-page.html">유튜브 상위노출</a>
+    <a href="pages/review-page.html">리뷰 마케팅</a>
+  </div>
+ </div>   
     <div class="copyright">
       © 2025 Stufftas 스터프타스. All rights reserved.
     </div>
   </footer>
-
+  
   <script>
-    // 모바일 메뉴 토글
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-      this.classList.toggle('active');
-      document.querySelector('nav').classList.toggle('active');
-    });
-    // 스크롤 시 헤더 배경 변경
+    // 스크롤 이벤트 처리
     window.addEventListener('scroll', function() {
-      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
+    
+    // 부드러운 스크롤 이동
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    // 모바일 메뉴 토글 기능
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('nav');
+  
+  if (mobileMenuToggle && nav) {
+    mobileMenuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+    
+    // 메뉴 항목 클릭 시 메뉴 닫기
+    const navLinks = nav.querySelectorAll('a:not(.dropdown-toggle)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+  }
+});
   </script>
 </body>
 </html>
